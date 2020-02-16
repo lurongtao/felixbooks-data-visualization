@@ -1,0 +1,502 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>03-Vue+Echart 项目实战 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-D3快速入门.html" />
+    
+    
+    <link rel="prev" href="02-ECharts 轻松上手.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-什么是数据可视化.html">
+            
+                <a href="01-什么是数据可视化.html">
+            
+                    
+                    01-什么是数据可视化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-ECharts 轻松上手.html">
+            
+                <a href="02-ECharts 轻松上手.html">
+            
+                    
+                    02-ECharts 轻松上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="03-Vue + Echart 项目实战.html">
+            
+                <a href="03-Vue + Echart 项目实战.html">
+            
+                    
+                    03-Vue+Echart 项目实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04-D3快速入门.html">
+            
+                <a href="04-D3快速入门.html">
+            
+                    
+                    04-D3快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05-D3进阶.html">
+            
+                <a href="05-D3进阶.html">
+            
+                    
+                    01-05-D3进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >03-Vue+Echart 项目实战</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vue--echart-&#x9879;&#x76EE;&#x5B9E;&#x6218;">Vue + Echart &#x9879;&#x76EE;&#x5B9E;&#x6218;</h1>
+<p>&#x57FA;&#x4E8E;vue&#x811A;&#x624B;&#x67B6;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#xFF1A;</p>
+<pre><code>yarn add echarts
+</code></pre><p>&#x67F1;&#x72B6;&#x56FE;&#x6A21;&#x62DF;&#x6570;&#x636E; (bar.json)</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;name&quot;</span>: [
+      <span class="hljs-string">&quot;&#x886C;&#x886B;&quot;</span>,
+      <span class="hljs-string">&quot;&#x7F8A;&#x6BDB;&#x886B;&quot;</span>,
+      <span class="hljs-string">&quot;&#x96EA;&#x7EBA;&#x886B;&quot;</span>,
+      <span class="hljs-string">&quot;&#x88E4;&#x5B50;&quot;</span>,
+      <span class="hljs-string">&quot;&#x9AD8;&#x8DDF;&#x978B;&quot;</span>,
+      <span class="hljs-string">&quot;&#x889C;&#x5B50;&quot;</span>
+    ],
+    <span class="hljs-string">&quot;sales&quot;</span>: [
+      <span class="hljs-number">10</span>,
+      <span class="hljs-number">30</span>,
+      <span class="hljs-number">25</span>,
+      <span class="hljs-number">5</span>,
+      <span class="hljs-number">40</span>,
+      <span class="hljs-number">35</span>
+    ],
+    <span class="hljs-string">&quot;cost&quot;</span>: [
+      <span class="hljs-number">5</span>,
+      <span class="hljs-number">3</span>,
+      <span class="hljs-number">6</span>,
+      <span class="hljs-number">0.5</span>,
+      <span class="hljs-number">4</span>,
+      <span class="hljs-number">15</span>
+    ]
+  }
+}
+</code></pre>
+<p>&#x997C;&#x56FE;&#x6A21;&#x62DF;&#x6570;&#x636E; &#xFF08;pie.json&#xFF09;</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;&#x67D0;&#x7AD9;&#x70B9;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6765;&#x6E90;&quot;</span>,
+    <span class="hljs-string">&quot;list&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">335</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">310</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x90AE;&#x4EF6;&#x8425;&#x9500;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">234</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x8054;&#x76DF;&#x5E7F;&#x544A;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">135</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x89C6;&#x9891;&#x5E7F;&#x544A;&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-number">1548</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x641C;&#x7D22;&#x5F15;&#x64CE;&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<p>App.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;Pie/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import Pie from &quot;./Pie&quot;
+
+export default {
+  name: &quot;app&quot;,
+  components: {
+    Pie
+  },
+  data() {
+    return {}
+  }
+}
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+#app {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  width: 600px;
+  height: 500px;
+}
+&lt;/style&gt;
+</code></pre>
+<p>Pie.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div ref=&quot;container&quot; style=&quot;width:500px;height:500px;&quot;&gt;
+    111
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import echarts from &quot;echarts&quot;
+
+export default {
+  name: &quot;app&quot;,
+  created() {},
+  data() {
+    return {
+      title: &quot;&#x67D0;&#x7AD9;&#x70B9;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6765;&#x6E90;&quot;,
+      data: []
+    }
+  },
+  components: {},
+  methods: {
+    initBar() {
+      var myChart = echarts.init(this.$refs.container)
+      var option = {
+        //&#x6807;&#x9898;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E3B;&#x6807;&#x9898;&#xFF0C;&#x526F;&#x6807;&#x9898;
+        title: {
+          text: &quot;echarts &#x5165;&#x95E8;&quot;,
+          link: &quot;https://www.baidu.com&quot;,
+          subtext: &quot;demo&quot;
+        },
+        //&#x56FE;&#x4F8B;&#x7EC4;&#x4EF6;
+        legend: {
+          data: [&quot;&#x9500;&#x91CF;&quot;],
+          show: true,
+          right: &quot;20&quot;
+        },
+        //x&#x5750;&#x6807;&#x8F74;
+        xAxis: {
+          data: this.name,
+          show: false
+        },
+        //y&#x5750;&#x6807;&#x8F74;
+        yAxis: {
+          show: true,
+          show: false
+        },
+        //&#x7CFB;&#x5217;&#xFF0C;&#x901A;&#x8FC7;type&#x6307;&#x5B9A;&#x8868;&#x7684;&#x7C7B;&#x578B;
+        series: [
+          {
+            name: &quot;&#x9500;&#x91CF;&quot;,
+            type: &quot;pie&quot;,
+            data: this.data,
+            radius: &quot;55%&quot;,
+            center: [&quot;40%&quot;, &quot;50%&quot;]
+          }
+        ]
+      }
+      myChart.setOption(option)
+    }
+  },
+  mounted() {
+    fetch(&quot;http://localhost:3000/data&quot;)
+      .then(res =&gt; res.json())
+      .then(res =&gt; {
+        this.title = res.title
+        this.data = res.list
+        this.initBar()
+      })
+  }
+}
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+#app {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  width: 600px;
+  height: 500px;
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="echarts-&#x5176;&#x5B83;&#x95EE;&#x9898;">echarts &#x5176;&#x5B83;&#x95EE;&#x9898;</h3>
+<p>&#x6298;&#x7EBF;&#x56FE;&#x7684;&#x5706;&#x6ED1;&#x5C55;&#x793A;&#xFF0C;&#x548C;&#x66F2;&#x7EBF;&#x7684;&#x5DEE;&#x5F02;&#x914D;&#x7F6E;,&#x6587;&#x672C;&#x6837;&#x5F0F;&#x8BBE;&#x7F6E;</p>
+<pre><code>smooth
+</code></pre><p>&#x5982;&#x4F55;&#x907F;&#x514D;&#x6298;&#x7EBF;&#x6570;&#x636E;&#x5806;&#x53E0;&#x7684;&#x95EE;&#x9898;&#xFF1F; </p>
+<pre><code>stack
+</code></pre><p>&#x52A8;&#x753B;&#xFF1A;&#x67F1;&#x72B6;&#x56FE;&#x52A8;&#x753B;&#x5EF6;&#x8FDF;&#xFF0C;animationDelay</p>
+<pre><code class="lang-js"> series: [
+    {
+      name: <span class="hljs-string">&quot;&#x9500;&#x91CF;&quot;</span>,
+      type: <span class="hljs-string">&quot;bar&quot;</span>,
+      data: <span class="hljs-keyword">this</span>.sales,
+      animationDelay: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx</span>) </span>{
+        <span class="hljs-keyword">return</span> idx * <span class="hljs-number">10</span>
+      }
+    },
+    {
+      name: <span class="hljs-string">&quot;&#x6210;&#x672C;&quot;</span>,
+      type: <span class="hljs-string">&quot;bar&quot;</span>,
+      data: <span class="hljs-keyword">this</span>.cost,
+      animationDelay: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx</span>) </span>{
+        <span class="hljs-keyword">return</span> idx * <span class="hljs-number">500</span>
+      }
+    }
+  ]
+</code></pre>
+<pre><code class="lang-js">animationEasing: <span class="hljs-string">&quot;elasticOut&quot;</span>,
+animationDelayUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idx</span>) </span>{
+  <span class="hljs-keyword">return</span> idx * <span class="hljs-number">50</span>
+}
+</code></pre>
+<p>&#x5916;&#x90E8;&#x6570;&#x636E;&#x66F4;&#x65B0;</p>
+<pre><code class="lang-js">myChart.setOption(option)
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-ECharts 轻松上手.html" class="navigation navigation-prev " aria-label="Previous page: 02-ECharts 轻松上手">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-D3快速入门.html" class="navigation navigation-next " aria-label="Next page: 04-D3快速入门">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"03-Vue+Echart 项目实战","level":"1.4","depth":1,"next":{"title":"04-D3快速入门","level":"1.5","depth":1,"path":"basics/04-D3快速入门.md","ref":"basics/04-D3快速入门.md","articles":[]},"previous":{"title":"02-ECharts 轻松上手","level":"1.3","depth":1,"path":"basics/02-ECharts 轻松上手.md","ref":"basics/02-ECharts 轻松上手.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/03-Vue + Echart 项目实战.md","mtime":"2020-02-16T15:14:49.209Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-16T15:43:22.482Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
