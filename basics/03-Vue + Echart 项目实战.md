@@ -200,8 +200,6 @@ export default {
 smooth
 ```
 
-
-
 如何避免折线数据堆叠的问题？ 
 
 ```
