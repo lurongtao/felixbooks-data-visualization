@@ -751,14 +751,15 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://d3js.org/d3.v5.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://d3js.org/d3.v5.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
     <span class="hljs-selector-id">#app</span> {
       <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">600px</span>;
       <span class="hljs-attribute">height</span>: <span class="hljs-number">400px</span>;
       <span class="hljs-attribute">background</span>: <span class="hljs-number">#efefef</span>;
       <span class="hljs-attribute">position</span>: relative;
+      <span class="hljs-attribute">margin</span>: auto <span class="hljs-number">0</span>;
     }
 
     <span class="hljs-selector-id">#tooltip</span> {
@@ -776,13 +777,17 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
     }
 
     <span class="hljs-selector-class">.bar</span> {
-      <span class="hljs-attribute">fill</span>: <span class="hljs-built_in">rgb</span>(46, 201, 15);
+      <span class="hljs-attribute">fill</span>: <span class="hljs-built_in">rgb</span>(104, 152, 241);
       <span class="hljs-attribute">position</span>: absolute;
       <span class="hljs-attribute">bottom</span>: <span class="hljs-number">100px</span>;
     }
 
     <span class="hljs-selector-class">.bar</span> <span class="hljs-selector-tag">span</span> {
       <span class="hljs-attribute">display</span>: block;
+      <span class="hljs-attribute">text-align</span>: center;
+    }
+
+    <span class="hljs-selector-class">.tool</span> {
       <span class="hljs-attribute">text-align</span>: center;
     }
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
@@ -792,7 +797,9 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tooltip&quot;</span>&gt;</span>
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 500px; height:400;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: center;&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 600px; height:400;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tool&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn-sort&quot;</span>&gt;</span>&#x6392;&#x5E8F;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -802,7 +809,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
 
     <span class="hljs-keyword">const</span> SVG_HEIGHT = <span class="hljs-number">400</span>;
-    <span class="hljs-keyword">const</span> SVG_WIDTH = <span class="hljs-number">500</span>;
+    <span class="hljs-keyword">const</span> SVG_WIDTH = <span class="hljs-number">600</span>;
     <span class="hljs-keyword">const</span> MARGIN = { TOP: <span class="hljs-number">30</span>, RIGHT: <span class="hljs-number">30</span>, BOTTOM: <span class="hljs-number">30</span>, LEFT: <span class="hljs-number">30</span> };
 
     <span class="hljs-comment">//&#x6392;&#x5E8F;&#x6807;&#x8BB0;</span>
@@ -838,6 +845,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
         .append(<span class="hljs-string">&apos;g&apos;</span>)
         .attr(<span class="hljs-string">&apos;transform&apos;</span>, <span class="hljs-string">&apos;translate(30,30)&apos;</span>)
     )
+
 
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">renderRect</span>(<span class="hljs-params"></span>) </span>{
 
@@ -877,7 +885,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
           d3.select(<span class="hljs-keyword">this</span>).style(<span class="hljs-string">&apos;fill&apos;</span>, <span class="hljs-string">&apos;orange&apos;</span>);
         })
         .on(<span class="hljs-string">&apos;mouseout&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-          d3.select(<span class="hljs-keyword">this</span>).style(<span class="hljs-string">&apos;fill&apos;</span>, <span class="hljs-string">&apos;rgb(46, 201, 15)&apos;</span>);
+          d3.select(<span class="hljs-keyword">this</span>).style(<span class="hljs-string">&apos;fill&apos;</span>, <span class="hljs-string">&apos;rgb(104, 152, 241)&apos;</span>);
         })
         .transition()
         .duration(<span class="hljs-number">200</span>)
@@ -914,18 +922,18 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
           <span class="hljs-keyword">return</span> xScale(i) + MARGIN.LEFT + xScale.bandwidth() / <span class="hljs-number">2</span> + <span class="hljs-string">&apos;px&apos;</span>;
         })
         .attr(<span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
-          <span class="hljs-keyword">return</span> SVG_HEIGHT - MARGIN.TOP - MARGIN.BOTTOM + <span class="hljs-string">&apos;px&apos;</span>;
+          <span class="hljs-keyword">return</span> SVG_HEIGHT - MARGIN.TOP - MARGIN.BOTTOM - <span class="hljs-number">5</span> + <span class="hljs-string">&apos;px&apos;</span>;
         })
-        .style(<span class="hljs-string">&apos;fill&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d</span>) </span>{
-          <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;red&apos;</span>;
-        })
+        <span class="hljs-comment">// .style(&apos;fill&apos;, function (d) {</span>
+        <span class="hljs-comment">//   return &apos;red&apos;;</span>
+        <span class="hljs-comment">// })</span>
         .transition()
         .duration(<span class="hljs-number">200</span>)
         .delay(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
           <span class="hljs-keyword">return</span> i * <span class="hljs-number">100</span>;
         })
         .attr(<span class="hljs-string">&apos;y&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
-          <span class="hljs-keyword">return</span> yScale(d) + MARGIN.TOP + <span class="hljs-string">&apos;px&apos;</span>;
+          <span class="hljs-keyword">return</span> yScale(d) + MARGIN.TOP - <span class="hljs-number">5</span> + <span class="hljs-string">&apos;px&apos;</span>;
         })
     }
 
@@ -945,9 +953,13 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
           <span class="hljs-keyword">return</span> xScale(i) + MARGIN.LEFT + <span class="hljs-string">&apos;px&apos;</span>;
         })
 
+
       container.select(<span class="hljs-string">&apos;.textGrop&apos;</span>)
         .selectAll(<span class="hljs-string">&apos;text&apos;</span>).sort((a, b) =&gt; {
           <span class="hljs-keyword">return</span> sort_flag ? d3.descending(a, b) : d3.ascending(a, b);
+        })
+        .text(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
+          <span class="hljs-keyword">return</span> d;
         })
         .transition()
         .duration(<span class="hljs-number">500</span>)
@@ -972,6 +984,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
         renderText();
       })
 
+
       d3.select(<span class="hljs-string">&quot;#btn-update&quot;</span>).on(<span class="hljs-string">&apos;click&apos;</span>, () =&gt; {
         mockData();
         refreshScale();
@@ -993,7 +1006,9 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
     initEvent();
 
   </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <h3 id="&#x997C;&#x72B6;&#x56FE;">&#x997C;&#x72B6;&#x56FE;</h3>
@@ -1364,7 +1379,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"05-D3进阶","level":"1.6","depth":1,"previous":{"title":"04-D3快速入门","level":"1.5","depth":1,"path":"basics/04-D3快速入门.md","ref":"basics/04-D3快速入门.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/05-D3进阶.md","mtime":"2020-02-20T00:29:29.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-20T01:10:02.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"05-D3进阶","level":"1.6","depth":1,"previous":{"title":"04-D3快速入门","level":"1.5","depth":1,"path":"basics/04-D3快速入门.md","ref":"basics/04-D3快速入门.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/05-D3进阶.md","mtime":"2020-02-21T00:37:01.136Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-21T00:38:08.563Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
