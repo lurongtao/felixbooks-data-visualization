@@ -1340,6 +1340,325 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
     .projection(projection);
 </code></pre>
 <p>projection() &#x662F;&#x8BBE;&#x5B9A;&#x751F;&#x6210;&#x5668;&#x7684;&#x6295;&#x5F71;&#x51FD;&#x6570;&#xFF0C;&#x628A;&#x4E0A;&#x9762;&#x5B9A;&#x4E49;&#x7684;&#x6295;&#x5F71;&#x4F20;&#x5165;&#x5373;&#x53EF;&#x3002;</p>
+<h4 id="&#x6848;&#x4F8B;">&#x6848;&#x4F8B;</h4>
+<h5 id="indexhtml">index.html</h5>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;ie=edge&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://d3js.org/d3.v5.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./map.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-id">#tooltip</span> {
+      <span class="hljs-attribute">text-align</span>: center;
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
+      <span class="hljs-attribute">font</span>: <span class="hljs-number">12px</span> sans-serif;
+      <span class="hljs-attribute">background</span>: lightsteelblue;
+      <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span>;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">2px</span>;
+      <span class="hljs-attribute">pointer-events</span>: none;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">left</span>: -<span class="hljs-number">20px</span>;
+      <span class="hljs-attribute">top</span>: -<span class="hljs-number">20px</span>;
+      <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+      <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid grey;
+      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+      <span class="hljs-attribute">width</span>: auto;
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span>;
+      <span class="hljs-attribute">color</span>: white;
+    }
+
+    <span class="hljs-selector-id">#tooltip</span> <span class="hljs-selector-tag">h4</span> {
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+    }
+
+    <span class="hljs-selector-id">#tooltip</span> <span class="hljs-selector-tag">table</span> {
+      <span class="hljs-attribute">table-layout</span>: fixed;
+    }
+
+    <span class="hljs-selector-id">#tooltip</span> <span class="hljs-selector-tag">tr</span> <span class="hljs-selector-tag">td</span> {
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-selector-id">#tooltip</span> <span class="hljs-selector-tag">tr</span> <span class="hljs-selector-tag">td</span><span class="hljs-selector-pseudo">:nth-child(1)</span> {
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;
+    }
+
+    <span class="hljs-selector-id">#tooltip</span> <span class="hljs-selector-tag">tr</span> <span class="hljs-selector-tag">td</span><span class="hljs-selector-pseudo">:nth-child(2)</span> {
+      <span class="hljs-attribute">text-align</span>: center;
+    }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tooltip&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tooltipHtml</span><span class="hljs-params">(d)</span> </span>{
+      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&lt;h4&gt;&quot;</span> + d.properties.name + <span class="hljs-string">&quot;&lt;/h4&gt;&lt;table&gt;&quot;</span> +
+        <span class="hljs-string">&quot;&lt;tr&gt;&lt;td&gt;Low&lt;/td&gt;&lt;td&gt;&quot;</span> + (d.properties.adcode) + <span class="hljs-string">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span> +
+        <span class="hljs-string">&quot;&lt;tr&gt;&lt;td&gt;Average&lt;/td&gt;&lt;td&gt;&quot;</span> + (d.properties.center) + <span class="hljs-string">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span> +
+        <span class="hljs-string">&quot;&lt;tr&gt;&lt;td&gt;High&lt;/td&gt;&lt;td&gt;&quot;</span> + (d.properties.centroid) + <span class="hljs-string">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span> +
+        <span class="hljs-string">&quot;&lt;/table&gt;&quot;</span>
+    }
+
+    d3.json(<span class="hljs-string">&apos;./china.json&apos;</span>).then((result) =&gt; {
+      <span class="hljs-comment">// console.log(result);</span>
+      map(<span class="hljs-string">&apos;#container&apos;</span>, result, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(d)</span> </span>{
+        d3.select(<span class="hljs-string">&quot;#tooltip&quot;</span>).html(
+          tooltipHtml(d, event)
+        )
+        .style(<span class="hljs-string">&quot;left&quot;</span>, (d3.event.pageX) + <span class="hljs-string">&quot;px&quot;</span>)
+        .style(<span class="hljs-string">&quot;top&quot;</span>, (d3.event.pageY - <span class="hljs-number">28</span>) + <span class="hljs-string">&quot;px&quot;</span>)
+      })
+    })
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h5 id="mapjs">map.js</h5>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">map</span>(<span class="hljs-params">id, data, clickCbk</span>) </span>{
+  <span class="hljs-keyword">const</span> width = <span class="hljs-number">1000</span>;
+  <span class="hljs-keyword">const</span> height = <span class="hljs-number">1000</span>;
+
+  <span class="hljs-comment">// &#x753B;&#x5E03;</span>
+  <span class="hljs-keyword">const</span> svg = d3
+    .select(id)
+    .append(<span class="hljs-string">&apos;svg&apos;</span>)
+    .attr(<span class="hljs-string">&apos;width&apos;</span>, width)
+    .attr(<span class="hljs-string">&apos;height&apos;</span>, height)
+
+  <span class="hljs-comment">//&#x6295;&#x5F71;&#x65B9;&#x5F0F;&#x3002;</span>
+  <span class="hljs-keyword">const</span> projection = d3
+    <span class="hljs-comment">//&#x6295;&#x5F71;&#x51FD;&#x6570;&#xFF0C;&#x5730;&#x7406;&#x6295;&#x5F71;&#xFF0C;&#x53EF;&#x5C06;&#x7ECF;&#x7EAC;&#x5EA6;&#x8F6C;&#x6210;&#x5E73;&#x9762;&#x5750;&#x6807;&#x7CFB;</span>
+    .geoMercator()
+    <span class="hljs-comment">//&#x8BBE;&#x5B9A;&#x5730;&#x56FE;&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;--&#x7ECF;&#x5EA6;&#x548C;&#x7EAC;&#x5EA6;</span>
+    .center([<span class="hljs-number">107</span>, <span class="hljs-number">31</span>])
+    <span class="hljs-comment">//&#x8BBE;&#x5B9A;&#x653E;&#x5927;&#x7684;&#x6BD4;&#x4F8B;</span>
+    .scale(<span class="hljs-number">800</span>)
+    <span class="hljs-comment">//&#x8BBE;&#x5B9A;&#x5E73;&#x79FB;</span>
+    .translate([width / <span class="hljs-number">2</span>, height / <span class="hljs-number">2</span>]);
+
+  <span class="hljs-keyword">const</span> path = d3.geoPath().projection(projection);
+  <span class="hljs-keyword">const</span> color = d3.schemeCategory10;
+
+  svg
+    .selectAll(<span class="hljs-string">&apos;g&apos;</span>)
+    .data(data.features)
+    .enter()
+    .append(<span class="hljs-string">&apos;g&apos;</span>)
+    .append(<span class="hljs-string">&apos;path&apos;</span>)
+    .attr(<span class="hljs-string">&apos;d&apos;</span>, path)
+    .attr(<span class="hljs-string">&apos;stroke&apos;</span>, <span class="hljs-string">&apos;#000&apos;</span>)
+    .attr(<span class="hljs-string">&apos;stroke-width&apos;</span>, <span class="hljs-number">1</span>)
+    .attr(<span class="hljs-string">&apos;opacity&apos;</span>, <span class="hljs-number">0.6</span>)
+    .attr(<span class="hljs-string">&apos;fill&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
+      <span class="hljs-keyword">return</span> color[i % <span class="hljs-number">10</span>]
+    })
+    .on(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">d, i</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(d);
+      clickCbk(d, d3.event);
+    })
+    .on(<span class="hljs-string">&apos;mouseover&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      d3.select(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">&apos;opacity&apos;</span>, <span class="hljs-number">1</span>);
+    })
+    .on(<span class="hljs-string">&apos;mouseout&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      d3.select(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">&apos;opacity&apos;</span>, <span class="hljs-number">0.6</span>);
+    });
+
+  <span class="hljs-comment">// &#x6DFB;&#x52A0;&#x5750;&#x6807;</span>
+  svg
+    .selectAll(<span class="hljs-string">&apos;g&apos;</span>)
+    .append(<span class="hljs-string">&apos;text&apos;</span>)
+    .attr(<span class="hljs-string">&apos;font-size&apos;</span>, <span class="hljs-number">12</span>)
+    .attr(<span class="hljs-string">&apos;text-anchor&apos;</span>, <span class="hljs-string">&apos;middle&apos;</span>)
+    .attr(<span class="hljs-string">&apos;x&apos;</span>, d =&gt; {
+      <span class="hljs-keyword">const</span> position = projection(d.properties.centroid || [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+      <span class="hljs-keyword">return</span> position[<span class="hljs-number">0</span>];
+    })
+    .attr(<span class="hljs-string">&apos;y&apos;</span>, d =&gt; {
+      <span class="hljs-keyword">const</span> position = projection(d.properties.centroid || [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+      <span class="hljs-keyword">return</span> position[<span class="hljs-number">1</span>];
+    })
+    .attr(<span class="hljs-string">&apos;dy&apos;</span>, d =&gt; {
+      <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x4E48;&#x5199;&#x5462;&#xFF0C;&#x56E0;&#x4E3A;&#x6FB3;&#x95E8;&#x548C;&#x9999;&#x6E2F;&#x91CD;&#x5408;&#x4E86;&#xFF0C;&#x6324;&#x5230;&#x4E00;&#x8D77;&#x4E86;&#x3002;</span>
+      <span class="hljs-keyword">if</span> (d.properties.name === <span class="hljs-string">&apos;&#x6FB3;&#x95E8;&apos;</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">15</span>;
+      }
+    })
+    .text(d =&gt; d.properties.name);
+}
+</code></pre>
+<h5 id="chinajson">china.json</h5>
+<p><a href="https://github.com/lurongtao/felixbooks-data-visualization/blob/master/basics/images/china.json" target="_blank">china.json &#x83B7;&#x53D6;&#x5730;&#x5740;</a></p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;FeatureCollection&quot;</span>,
+  <span class="hljs-string">&quot;features&quot;</span>: [{
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>: {
+      <span class="hljs-string">&quot;adcode&quot;</span>: <span class="hljs-number">110000</span>,
+      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;&#x5317;&#x4EAC;&#x5E02;&quot;</span>,
+      <span class="hljs-string">&quot;center&quot;</span>: [<span class="hljs-number">116.405285</span>, <span class="hljs-number">39.904989</span>],
+      <span class="hljs-string">&quot;centroid&quot;</span>: [<span class="hljs-number">116.41989</span>, <span class="hljs-number">40.189913</span>],
+      <span class="hljs-string">&quot;childrenNum&quot;</span>: <span class="hljs-number">16</span>,
+      <span class="hljs-string">&quot;level&quot;</span>: <span class="hljs-string">&quot;province&quot;</span>,
+      <span class="hljs-string">&quot;subFeatureIndex&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-string">&quot;acroutes&quot;</span>: [<span class="hljs-number">100000</span>],
+      <span class="hljs-string">&quot;parent&quot;</span>: {
+        <span class="hljs-string">&quot;adcode&quot;</span>: <span class="hljs-number">100000</span>
+      }
+    },
+    <span class="hljs-string">&quot;geometry&quot;</span>: {
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;MultiPolygon&quot;</span>,
+      <span class="hljs-string">&quot;coordinates&quot;</span>: [
+        [
+          [
+            [<span class="hljs-number">117.210024</span>, <span class="hljs-number">40.082262</span>],
+            [<span class="hljs-number">117.105315</span>, <span class="hljs-number">40.074479</span>],
+            [<span class="hljs-number">117.105315</span>, <span class="hljs-number">40.074479</span>],
+            [<span class="hljs-number">117.102851</span>, <span class="hljs-number">40.073563</span>],
+            [<span class="hljs-number">117.102235</span>, <span class="hljs-number">40.073105</span>],
+            [<span class="hljs-number">117.102235</span>, <span class="hljs-number">40.073105</span>],
+            [<span class="hljs-number">117.102851</span>, <span class="hljs-number">40.073563</span>],
+            [<span class="hljs-number">116.999989</span>, <span class="hljs-number">40.030053</span>],
+            [<span class="hljs-number">116.927924</span>, <span class="hljs-number">40.054788</span>],
+            [<span class="hljs-number">116.783794</span>, <span class="hljs-number">40.035093</span>],
+            [<span class="hljs-number">116.757925</span>, <span class="hljs-number">39.968176</span>],
+            [<span class="hljs-number">116.786874</span>, <span class="hljs-number">39.886963</span>],
+            [<span class="hljs-number">116.926076</span>, <span class="hljs-number">39.835524</span>],
+            [<span class="hljs-number">116.949482</span>, <span class="hljs-number">39.778529</span>],
+            [<span class="hljs-number">116.902055</span>, <span class="hljs-number">39.763813</span>],
+            [<span class="hljs-number">116.90575</span>, <span class="hljs-number">39.687883</span>],
+            [<span class="hljs-number">116.812128</span>, <span class="hljs-number">39.616018</span>],
+            [<span class="hljs-number">116.717273</span>, <span class="hljs-number">39.603572</span>],
+            [<span class="hljs-number">116.717273</span>, <span class="hljs-number">39.603572</span>],
+            [<span class="hljs-number">116.720969</span>, <span class="hljs-number">39.599884</span>],
+            [<span class="hljs-number">116.720969</span>, <span class="hljs-number">39.599884</span>],
+            [<span class="hljs-number">116.726512</span>, <span class="hljs-number">39.595274</span>],
+            [<span class="hljs-number">116.726512</span>, <span class="hljs-number">39.595274</span>],
+            [<span class="hljs-number">116.703106</span>, <span class="hljs-number">39.588819</span>],
+            [<span class="hljs-number">116.703106</span>, <span class="hljs-number">39.588819</span>],
+            [<span class="hljs-number">116.607636</span>, <span class="hljs-number">39.619705</span>],
+            [<span class="hljs-number">116.524484</span>, <span class="hljs-number">39.596657</span>],
+            [<span class="hljs-number">116.440716</span>, <span class="hljs-number">39.527466</span>],
+            [<span class="hljs-number">116.433325</span>, <span class="hljs-number">39.44296</span>],
+            [<span class="hljs-number">116.332927</span>, <span class="hljs-number">39.457744</span>],
+            [<span class="hljs-number">116.245464</span>, <span class="hljs-number">39.515466</span>],
+            [<span class="hljs-number">116.204196</span>, <span class="hljs-number">39.588819</span>],
+            [<span class="hljs-number">116.10195</span>, <span class="hljs-number">39.576368</span>],
+            [<span class="hljs-number">116.10195</span>, <span class="hljs-number">39.576368</span>],
+            [<span class="hljs-number">115.957204</span>, <span class="hljs-number">39.561147</span>],
+            [<span class="hljs-number">115.910393</span>, <span class="hljs-number">39.600345</span>],
+            [<span class="hljs-number">115.910393</span>, <span class="hljs-number">39.600345</span>],
+            [<span class="hljs-number">115.855574</span>, <span class="hljs-number">39.554689</span>],
+            [<span class="hljs-number">115.855574</span>, <span class="hljs-number">39.554689</span>],
+            [<span class="hljs-number">115.846951</span>, <span class="hljs-number">39.550999</span>],
+            [<span class="hljs-number">115.846951</span>, <span class="hljs-number">39.550999</span>],
+            [<span class="hljs-number">115.821081</span>, <span class="hljs-number">39.517312</span>],
+            [<span class="hljs-number">115.821081</span>, <span class="hljs-number">39.517312</span>],
+            [<span class="hljs-number">115.752712</span>, <span class="hljs-number">39.512696</span>],
+            [<span class="hljs-number">115.752712</span>, <span class="hljs-number">39.512696</span>],
+            [<span class="hljs-number">115.738545</span>, <span class="hljs-number">39.539464</span>],
+            [<span class="hljs-number">115.738545</span>, <span class="hljs-number">39.539925</span>],
+            [<span class="hljs-number">115.738545</span>, <span class="hljs-number">39.539464</span>],
+            [<span class="hljs-number">115.738545</span>, <span class="hljs-number">39.539925</span>],
+            [<span class="hljs-number">115.737314</span>, <span class="hljs-number">39.544078</span>],
+            [<span class="hljs-number">115.737314</span>, <span class="hljs-number">39.544078</span>],
+            [<span class="hljs-number">115.723763</span>, <span class="hljs-number">39.544539</span>],
+            [<span class="hljs-number">115.723763</span>, <span class="hljs-number">39.544539</span>],
+            [<span class="hljs-number">115.721299</span>, <span class="hljs-number">39.543617</span>],
+            [<span class="hljs-number">115.721299</span>, <span class="hljs-number">39.543617</span>],
+            [<span class="hljs-number">115.721299</span>, <span class="hljs-number">39.55146</span>],
+            [<span class="hljs-number">115.721299</span>, <span class="hljs-number">39.55146</span>],
+            [<span class="hljs-number">115.716988</span>, <span class="hljs-number">39.560225</span>],
+            [<span class="hljs-number">115.716988</span>, <span class="hljs-number">39.560225</span>],
+            [<span class="hljs-number">115.699125</span>, <span class="hljs-number">39.577751</span>],
+            [<span class="hljs-number">115.698509</span>, <span class="hljs-number">39.577751</span>],
+            [<span class="hljs-number">115.698509</span>, <span class="hljs-number">39.577751</span>],
+            [<span class="hljs-number">115.699125</span>, <span class="hljs-number">39.577751</span>],
+            [<span class="hljs-number">115.698509</span>, <span class="hljs-number">39.577751</span>],
+            [<span class="hljs-number">115.69543</span>, <span class="hljs-number">39.579135</span>],
+            [<span class="hljs-number">115.69543</span>, <span class="hljs-number">39.579135</span>],
+            [<span class="hljs-number">115.586408</span>, <span class="hljs-number">39.58928</span>],
+            [<span class="hljs-number">115.478619</span>, <span class="hljs-number">39.650578</span>],
+            [<span class="hljs-number">115.478619</span>, <span class="hljs-number">39.650578</span>],
+            [<span class="hljs-number">115.498945</span>, <span class="hljs-number">39.69617</span>],
+            [<span class="hljs-number">115.498945</span>, <span class="hljs-number">39.69617</span>],
+            [<span class="hljs-number">115.443511</span>, <span class="hljs-number">39.785426</span>],
+            [<span class="hljs-number">115.443511</span>, <span class="hljs-number">39.785426</span>],
+            [<span class="hljs-number">115.567314</span>, <span class="hljs-number">39.816224</span>],
+            [<span class="hljs-number">115.514344</span>, <span class="hljs-number">39.837821</span>],
+            [<span class="hljs-number">115.522967</span>, <span class="hljs-number">39.898898</span>],
+            [<span class="hljs-number">115.426264</span>, <span class="hljs-number">39.95029</span>],
+            [<span class="hljs-number">115.454597</span>, <span class="hljs-number">40.029595</span>],
+            [<span class="hljs-number">115.599343</span>, <span class="hljs-number">40.11979</span>],
+            [<span class="hljs-number">115.73485</span>, <span class="hljs-number">40.129398</span>],
+            [<span class="hljs-number">115.773038</span>, <span class="hljs-number">40.176044</span>],
+            [<span class="hljs-number">115.85311</span>, <span class="hljs-number">40.148609</span>],
+            [<span class="hljs-number">115.89869</span>, <span class="hljs-number">40.234536</span>],
+            [<span class="hljs-number">115.968907</span>, <span class="hljs-number">40.264219</span>],
+            [<span class="hljs-number">115.9184</span>, <span class="hljs-number">40.354103</span>],
+            [<span class="hljs-number">115.861733</span>, <span class="hljs-number">40.364589</span>],
+            [<span class="hljs-number">115.861733</span>, <span class="hljs-number">40.364589</span>],
+            [<span class="hljs-number">115.779197</span>, <span class="hljs-number">40.442501</span>],
+            [<span class="hljs-number">115.755792</span>, <span class="hljs-number">40.540333</span>],
+            [<span class="hljs-number">115.907929</span>, <span class="hljs-number">40.617133</span>],
+            [<span class="hljs-number">116.005247</span>, <span class="hljs-number">40.58397</span>],
+            [<span class="hljs-number">116.088399</span>, <span class="hljs-number">40.62667</span>],
+            [<span class="hljs-number">116.22021</span>, <span class="hljs-number">40.744181</span>],
+            [<span class="hljs-number">116.247311</span>, <span class="hljs-number">40.791762</span>],
+            [<span class="hljs-number">116.464738</span>, <span class="hljs-number">40.771827</span>],
+            [<span class="hljs-number">116.334159</span>, <span class="hljs-number">40.90446</span>],
+            [<span class="hljs-number">116.473977</span>, <span class="hljs-number">40.895867</span>],
+            [<span class="hljs-number">116.455499</span>, <span class="hljs-number">40.98084</span>],
+            [<span class="hljs-number">116.519557</span>, <span class="hljs-number">40.981292</span>],
+            [<span class="hljs-number">116.519557</span>, <span class="hljs-number">40.981292</span>],
+            [<span class="hljs-number">116.599013</span>, <span class="hljs-number">40.974516</span>],
+            [<span class="hljs-number">116.615643</span>, <span class="hljs-number">41.053072</span>],
+            [<span class="hljs-number">116.688324</span>, <span class="hljs-number">41.044499</span>],
+            [<span class="hljs-number">116.677853</span>, <span class="hljs-number">40.970902</span>],
+            [<span class="hljs-number">116.730208</span>, <span class="hljs-number">40.897676</span>],
+            [<span class="hljs-number">116.858323</span>, <span class="hljs-number">40.833423</span>],
+            [<span class="hljs-number">116.964881</span>, <span class="hljs-number">40.70972</span>],
+            [<span class="hljs-number">117.110858</span>, <span class="hljs-number">40.70836</span>],
+            [<span class="hljs-number">117.286401</span>, <span class="hljs-number">40.660719</span>],
+            [<span class="hljs-number">117.386799</span>, <span class="hljs-number">40.684317</span>],
+            [<span class="hljs-number">117.49582</span>, <span class="hljs-number">40.674334</span>],
+            [<span class="hljs-number">117.389879</span>, <span class="hljs-number">40.5617</span>],
+            [<span class="hljs-number">117.344299</span>, <span class="hljs-number">40.582152</span>],
+            [<span class="hljs-number">117.213104</span>, <span class="hljs-number">40.512136</span>],
+            [<span class="hljs-number">117.225423</span>, <span class="hljs-number">40.369148</span>],
+            [<span class="hljs-number">117.309191</span>, <span class="hljs-number">40.279284</span>],
+            [<span class="hljs-number">117.309807</span>, <span class="hljs-number">40.279284</span>],
+            [<span class="hljs-number">117.309191</span>, <span class="hljs-number">40.279284</span>],
+            [<span class="hljs-number">117.309807</span>, <span class="hljs-number">40.279284</span>],
+            [<span class="hljs-number">117.389879</span>, <span class="hljs-number">40.228141</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.172387</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.172844</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.173301</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.173301</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.172844</span>],
+            [<span class="hljs-number">117.367089</span>, <span class="hljs-number">40.172387</span>],
+            [<span class="hljs-number">117.344299</span>, <span class="hljs-number">40.13443</span>],
+            [<span class="hljs-number">117.210024</span>, <span class="hljs-number">40.082262</span>]
+          ]
+        ]
+      ]
+    }
+  }
+  <span class="hljs-comment">//...</span>
+]}
+</code></pre>
 
                                 
                                 </section>
@@ -1379,7 +1698,7 @@ scale2.invertExtent(<span class="hljs-string">&apos;small&apos;</span>) <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"05-D3进阶","level":"1.6","depth":1,"previous":{"title":"04-D3快速入门","level":"1.5","depth":1,"path":"basics/04-D3快速入门.md","ref":"basics/04-D3快速入门.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/05-D3进阶.md","mtime":"2020-02-21T00:37:01.136Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-21T00:38:08.563Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"05-D3进阶","level":"1.6","depth":1,"previous":{"title":"04-D3快速入门","level":"1.5","depth":1,"path":"basics/04-D3快速入门.md","ref":"basics/04-D3快速入门.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basics/05-D3进阶.md","mtime":"2020-02-23T23:03:58.296Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-23T23:05:17.830Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
