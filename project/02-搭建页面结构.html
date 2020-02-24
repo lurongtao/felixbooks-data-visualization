@@ -1,0 +1,664 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>02-搭建页面结构 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="01-项目环境搭建.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    数据可视化基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    01-什么是数据可视化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/02-ECharts 轻松上手.html">
+            
+                <a href="../basics/02-ECharts 轻松上手.html">
+            
+                    
+                    02-ECharts 轻松上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/03-Vue + Echart 项目实战.html">
+            
+                <a href="../basics/03-Vue + Echart 项目实战.html">
+            
+                    
+                    03-Vue+Echart 项目实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../basics/04-D3快速入门.html">
+            
+                <a href="../basics/04-D3快速入门.html">
+            
+                    
+                    04-D3快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../basics/05-D3进阶.html">
+            
+                <a href="../basics/05-D3进阶.html">
+            
+                    
+                    05-D3进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据可视化项目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-项目环境搭建.html">
+            
+                <a href="01-项目环境搭建.html">
+            
+                    
+                    01-项目环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="02-搭建页面结构.html">
+            
+                <a href="02-搭建页面结构.html">
+            
+                    
+                    02-搭建页面结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >02-搭建页面结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x642D;&#x5EFA;&#x9875;&#x9762;&#x7ED3;&#x6784;">&#x642D;&#x5EFA;&#x9875;&#x9762;&#x7ED3;&#x6784;</h1>
+<h5 id="&#x4FEE;&#x6539;-mainjs">&#x4FEE;&#x6539; main.js</h5>
+<pre><code class="lang-js"><span class="hljs-comment">// /main.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./App.vue&apos;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./assets/css/reset.css&apos;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./assets/css/common.css&apos;</span>
+
+<span class="hljs-keyword">import</span> zoom <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./assets/scripts/tool/zoom&apos;</span>
+zoom()
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;resize&apos;</span>, zoom)
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  render: h =&gt; h(App),
+}).$mount(<span class="hljs-string">&apos;#app&apos;</span>)
+</code></pre>
+<h5 id="&#x6DFB;&#x52A0;&#x57FA;&#x672C;&#x6837;&#x5F0F;">&#x6DFB;&#x52A0;&#x57FA;&#x672C;&#x6837;&#x5F0F;</h5>
+<pre><code class="lang-css"><span class="hljs-comment">/* /src/assets/css/reset.css */</span>
+<span class="hljs-selector-tag">html</span>,
+<span class="hljs-selector-tag">body</span>,
+<span class="hljs-selector-tag">div</span>,
+<span class="hljs-selector-tag">span</span>,
+<span class="hljs-selector-tag">applet</span>,
+<span class="hljs-selector-tag">object</span>,
+<span class="hljs-selector-tag">iframe</span>,
+<span class="hljs-selector-tag">h1</span>,
+<span class="hljs-selector-tag">h2</span>,
+<span class="hljs-selector-tag">h3</span>,
+<span class="hljs-selector-tag">h4</span>,
+<span class="hljs-selector-tag">h5</span>,
+<span class="hljs-selector-tag">h6</span>,
+<span class="hljs-selector-tag">p</span>,
+<span class="hljs-selector-tag">blockquote</span>,
+<span class="hljs-selector-tag">pre</span>,
+<span class="hljs-selector-tag">a</span>,
+<span class="hljs-selector-tag">abbr</span>,
+<span class="hljs-selector-tag">acronym</span>,
+<span class="hljs-selector-tag">address</span>,
+<span class="hljs-selector-tag">big</span>,
+<span class="hljs-selector-tag">cite</span>,
+<span class="hljs-selector-tag">code</span>,
+<span class="hljs-selector-tag">del</span>,
+<span class="hljs-selector-tag">dfn</span>,
+<span class="hljs-selector-tag">em</span>,
+<span class="hljs-selector-tag">img</span>,
+<span class="hljs-selector-tag">ins</span>,
+<span class="hljs-selector-tag">kbd</span>,
+<span class="hljs-selector-tag">q</span>,
+<span class="hljs-selector-tag">s</span>,
+<span class="hljs-selector-tag">samp</span>,
+<span class="hljs-selector-tag">small</span>,
+<span class="hljs-selector-tag">strike</span>,
+<span class="hljs-selector-tag">strong</span>,
+<span class="hljs-selector-tag">sub</span>,
+<span class="hljs-selector-tag">sup</span>,
+<span class="hljs-selector-tag">tt</span>,
+<span class="hljs-selector-tag">var</span>,
+<span class="hljs-selector-tag">b</span>,
+<span class="hljs-selector-tag">u</span>,
+<span class="hljs-selector-tag">i</span>,
+<span class="hljs-selector-tag">center</span>,
+<span class="hljs-selector-tag">dl</span>,
+<span class="hljs-selector-tag">dt</span>,
+<span class="hljs-selector-tag">dd</span>,
+<span class="hljs-selector-tag">ol</span>,
+<span class="hljs-selector-tag">ul</span>,
+<span class="hljs-selector-tag">li</span>,
+<span class="hljs-selector-tag">fieldset</span>,
+<span class="hljs-selector-tag">form</span>,
+<span class="hljs-selector-tag">label</span>,
+<span class="hljs-selector-tag">legend</span>,
+<span class="hljs-selector-tag">table</span>,
+<span class="hljs-selector-tag">caption</span>,
+<span class="hljs-selector-tag">tbody</span>,
+<span class="hljs-selector-tag">tfoot</span>,
+<span class="hljs-selector-tag">thead</span>,
+<span class="hljs-selector-tag">tr</span>,
+<span class="hljs-selector-tag">th</span>,
+<span class="hljs-selector-tag">td</span>,
+<span class="hljs-selector-tag">article</span>,
+<span class="hljs-selector-tag">aside</span>,
+<span class="hljs-selector-tag">canvas</span>,
+<span class="hljs-selector-tag">details</span>,
+<span class="hljs-selector-tag">embed</span>,
+<span class="hljs-selector-tag">figure</span>,
+<span class="hljs-selector-tag">figcaption</span>,
+<span class="hljs-selector-tag">footer</span>,
+<span class="hljs-selector-tag">header</span>,
+<span class="hljs-selector-tag">hgroup</span>,
+<span class="hljs-selector-tag">menu</span>,
+<span class="hljs-selector-tag">nav</span>,
+<span class="hljs-selector-tag">output</span>,
+<span class="hljs-selector-tag">ruby</span>,
+<span class="hljs-selector-tag">section</span>,
+<span class="hljs-selector-tag">summary</span>,
+<span class="hljs-selector-tag">time</span>,
+<span class="hljs-selector-tag">mark</span>,
+<span class="hljs-selector-tag">audio</span>,
+<span class="hljs-selector-tag">video</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">font</span>: inherit;
+  <span class="hljs-attribute">vertical-align</span>: baseline;
+}
+
+<span class="hljs-selector-tag">article</span>,
+<span class="hljs-selector-tag">aside</span>,
+<span class="hljs-selector-tag">details</span>,
+<span class="hljs-selector-tag">figcaption</span>,
+<span class="hljs-selector-tag">figure</span>,
+<span class="hljs-selector-tag">footer</span>,
+<span class="hljs-selector-tag">header</span>,
+<span class="hljs-selector-tag">hgroup</span>,
+<span class="hljs-selector-tag">menu</span>,
+<span class="hljs-selector-tag">nav</span>,
+<span class="hljs-selector-tag">section</span> {
+  <span class="hljs-attribute">display</span>: block;
+}
+
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-selector-tag">li</span>,
+<span class="hljs-selector-tag">ol</span>,
+<span class="hljs-selector-tag">ul</span> {
+  <span class="hljs-attribute">list-style</span>: none;
+}
+
+<span class="hljs-selector-tag">blockquote</span>,
+<span class="hljs-selector-tag">q</span> {
+  <span class="hljs-attribute">quotes</span>: none;
+}
+
+<span class="hljs-selector-tag">blockquote</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-tag">blockquote</span><span class="hljs-selector-pseudo">:after</span>,
+<span class="hljs-selector-tag">q</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-tag">q</span><span class="hljs-selector-pseudo">:after</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&apos;&apos;</span>;
+  <span class="hljs-attribute">content</span>: none;
+}
+
+<span class="hljs-selector-tag">table</span> {
+  <span class="hljs-attribute">border-collapse</span>: collapse;
+  <span class="hljs-attribute">border-spacing</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-tag">a</span>{
+  <span class="hljs-attribute">text-decoration</span>: none;
+}
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-comment">/* /src/assets/css/common.css */</span>
+<span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">transform-origin</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0px</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;&quot;</span>;
+}
+
+<span class="hljs-selector-class">.text-white-shadow</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-number">#fbfbfb</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">#fbfbfb</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">#228DFF</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">35px</span> <span class="hljs-number">#228DFF</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">75px</span> <span class="hljs-number">#228DFF</span>;
+}
+
+<span class="hljs-selector-class">.text-green-shadow</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-number">#68fff3</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">#68fff3</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">#228DFF</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">35px</span> <span class="hljs-number">#228DFF</span>, <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">75px</span> <span class="hljs-number">#228DFF</span>;
+}
+
+<span class="hljs-selector-class">.chart-title</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">52px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">50px</span>;
+}
+
+<span class="hljs-selector-class">.auto-tooltip</span> {
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">15px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(59, 57, 54, 0.8);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#928a82</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">30px</span>;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">9999</span>;
+  <span class="hljs-attribute">white-space</span>: nowrap;
+  <span class="hljs-attribute">display</span>: none;
+}
+
+<span class="hljs-selector-class">.axis</span> <span class="hljs-selector-tag">path</span>,
+<span class="hljs-selector-class">.axis</span> <span class="hljs-selector-tag">line</span> {
+  <span class="hljs-attribute">fill</span>: none;
+  <span class="hljs-attribute">stroke</span>: none;
+  <span class="hljs-attribute">shape-rendering</span>: optimizeSpeed;
+}
+
+<span class="hljs-selector-class">.axis</span> <span class="hljs-selector-tag">text</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">28px</span>;
+  <span class="hljs-attribute">font-family</span>: sans-serif;
+  <span class="hljs-attribute">fill</span>: <span class="hljs-number">#a4d5ff</span>;
+}
+
+<span class="hljs-selector-class">.legend-hide</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#8da5e4</span> <span class="hljs-meta">!important</span>;
+}
+
+<span class="hljs-selector-class">.map-chart</span> <span class="hljs-selector-class">.xingzheng</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(0px, 8px);
+}
+
+<span class="hljs-selector-class">.map-chart</span> <span class="hljs-selector-class">.xingshi</span> <span class="hljs-selector-class">.circleMain</span> {
+  <span class="hljs-attribute">fill</span>: <span class="hljs-number">#0084ff</span>;
+}
+
+<span class="hljs-selector-class">.map-chart</span> <span class="hljs-selector-class">.xingzheng</span> <span class="hljs-selector-class">.circleMain</span> {
+  <span class="hljs-attribute">fill</span>: <span class="hljs-number">#fff</span>;
+}
+
+<span class="hljs-selector-class">.map-chart</span> <span class="hljs-selector-class">.xingshi</span> <span class="hljs-selector-class">.circleOuter1</span>,
+<span class="hljs-selector-class">.xingshi</span> <span class="hljs-selector-class">.circleOuter2</span> {
+  <span class="hljs-attribute">stroke</span>: <span class="hljs-number">#0084ff</span>;
+  <span class="hljs-attribute">fill</span>: none;
+}
+
+<span class="hljs-selector-class">.map-chart</span> <span class="hljs-selector-class">.xingzheng</span> <span class="hljs-selector-class">.circleOuter1</span>,
+<span class="hljs-selector-class">.xingzheng</span> <span class="hljs-selector-class">.circleOuter2</span> {
+  <span class="hljs-attribute">stroke</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">fill</span>: none;
+}
+
+<span class="hljs-selector-class">.circleOuter2</span> {
+  <span class="hljs-attribute">animation</span>: cri <span class="hljs-number">1s</span> infinite;
+}
+
+@<span class="hljs-keyword">keyframes</span> cri {
+  0%,
+  100%,
+  20%,
+  40%,
+  60%,
+  80% {
+    <span class="hljs-attribute">-webkit-transition-timing-function</span>: <span class="hljs-built_in">cubic-bezier</span>(0.215, .61, .355, 1);
+    <span class="hljs-attribute">transition-timing-function</span>: <span class="hljs-built_in">cubic-bezier</span>(0.215, .61, .355, 1)
+  }
+  0% {
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);
+  }
+  100% {
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1.5);
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+  }
+}
+
+@<span class="hljs-keyword">-webkit-keyframes</span> cri {
+  0%,
+  100%,
+  20%,
+  40%,
+  60%,
+  80% {
+    <span class="hljs-attribute">-webkit-transition-timing-function</span>: <span class="hljs-built_in">cubic-bezier</span>(0.215, .61, .355, 1);
+    <span class="hljs-attribute">transition-timing-function</span>: <span class="hljs-built_in">cubic-bezier</span>(0.215, .61, .355, 1)
+  }
+  0% {
+    <span class="hljs-attribute">-webkit-transform</span>: <span class="hljs-built_in">scale</span>(1);
+  }
+  100% {
+    <span class="hljs-attribute">-webkit-transform</span>: <span class="hljs-built_in">scale</span>(1.5);
+    <span class="hljs-attribute">-webkit-opacity</span>: <span class="hljs-number">0</span>;
+  }
+}
+
+<span class="hljs-comment">/* &#x6DFB;&#x52A0;&#x9875;&#x9762;&#x80CC;&#x666F;&#x56FE; */</span>
+<span class="hljs-selector-class">.side-r-wrap</span> {
+  <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(../../assets/images/common/page-bg.jpg) no-repeat;
+  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">overflow</span>: hidden;
+}
+</code></pre>
+<h5 id="&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x81EA;&#x52A8;&#x7F29;&#x653E;">&#x5B9E;&#x73B0;&#x9875;&#x9762;&#x81EA;&#x52A8;&#x7F29;&#x653E;</h5>
+<pre><code class="lang-js"><span class="hljs-comment">// /main.js</span>
+<span class="hljs-keyword">import</span> zoom <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./assets/scripts/tool/zoom&apos;</span>
+zoom()
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;resize&apos;</span>, zoom)
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// /src/assets/scripts/tool/zoom.js</span>
+<span class="hljs-keyword">import</span> config <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./config&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> {
+    pageWidth,
+    pageHeight
+  } = config
+
+  <span class="hljs-keyword">const</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;body&apos;</span>)
+
+  body.style.width = <span class="hljs-string">`<span class="hljs-subst">${pageWidth}</span>px`</span>
+  body.style.height = <span class="hljs-string">`<span class="hljs-subst">${pageHeight}</span>px`</span>
+  <span class="hljs-keyword">const</span> x = <span class="hljs-built_in">window</span>.innerWidth / pageWidth
+  <span class="hljs-keyword">const</span> y = <span class="hljs-built_in">window</span>.innerHeight / pageHeight
+  body.style.transform = <span class="hljs-string">`scale(<span class="hljs-subst">${x}</span>, <span class="hljs-subst">${y}</span>)`</span>
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-项目环境搭建.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 01-项目环境搭建">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"02-搭建页面结构","level":"1.3.2","depth":2,"previous":{"title":"01-项目环境搭建","level":"1.3.1","depth":2,"path":"project/01-项目环境搭建.md","ref":"project/01-项目环境搭建.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"project/02-搭建页面结构.md","mtime":"2020-02-24T00:30:38.332Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T00:40:35.176Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
