@@ -1,0 +1,889 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>04-构建左侧信息展示 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="03-实现顶部信息展示.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    数据可视化基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    01-什么是数据可视化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/02-ECharts 轻松上手.html">
+            
+                <a href="../basics/02-ECharts 轻松上手.html">
+            
+                    
+                    02-ECharts 轻松上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/03-Vue + Echart 项目实战.html">
+            
+                <a href="../basics/03-Vue + Echart 项目实战.html">
+            
+                    
+                    03-Vue+Echart 项目实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../basics/04-D3快速入门.html">
+            
+                <a href="../basics/04-D3快速入门.html">
+            
+                    
+                    04-D3快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../basics/05-D3进阶.html">
+            
+                <a href="../basics/05-D3进阶.html">
+            
+                    
+                    05-D3进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据可视化项目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-项目环境搭建.html">
+            
+                <a href="01-项目环境搭建.html">
+            
+                    
+                    01-项目环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-搭建页面结构.html">
+            
+                <a href="02-搭建页面结构.html">
+            
+                    
+                    02-搭建页面结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="03-实现顶部信息展示.html">
+            
+                <a href="03-实现顶部信息展示.html">
+            
+                    
+                    03-实现顶部信息展示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4" data-path="04-构建左侧信息展示.html">
+            
+                <a href="04-构建左侧信息展示.html">
+            
+                    
+                    04-构建左侧信息展示
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >04-构建左侧信息展示</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6784;&#x5EFA;&#x5DE6;&#x4FA7;&#x4FE1;&#x606F;&#x5C55;&#x793A;">&#x6784;&#x5EFA;&#x5DE6;&#x4FA7;&#x4FE1;&#x606F;&#x5C55;&#x793A;</h1>
+<h4 id="1&#x3001;app-&#x7EC4;&#x4EF6;-&#x4FEE;&#x6539;">1&#x3001;App &#x7EC4;&#x4EF6; &#x4FEE;&#x6539;</h4>
+<p>/App.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;castle side-r-wrap&quot;&gt;
+    &lt;TopSide :title=&quot;title&quot;&gt;&lt;/TopSide&gt;
+    &lt;TopMid&gt;&lt;/TopMid&gt;
+    &lt;Left&gt;&lt;/Left&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import TopSide from &apos;@/components/TopSide&apos;
+import TopMid from &apos;@/components/TopMid&apos;
+import Left from &apos;@/components/Left&apos;
+
+export default {
+  name: &apos;Castle&apos;,
+  data () {
+    return {
+      title: &apos;&#x516C;&#x5B89;&#x8B66;&#x60C5;&#x53EF;&#x89C6;&#x5316;&apos;
+    }
+  },
+  components: {
+    TopSide,
+    TopMid,
+    Left
+  }
+}
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre>
+<h5 id="2&#x3001;&#x6784;&#x5EFA;-leftvue">2&#x3001;&#x6784;&#x5EFA; Left.vue</h5>
+<p>/src/components/Left.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;left&quot;&gt;
+    &lt;div class=&quot;diandongche&quot;&gt;
+      &lt;h2 class=&quot;chart-title&quot;&gt;&#x5E74;&#x5EA6;&#x5211;&#x4E8B;&#x6848;&#x4EF6;&#x6570;
+      &lt;/h2&gt;
+      &lt;ul class=&quot;alarm-list&quot;&gt;
+        &lt;li&gt;
+          &lt;p class=&quot;alarm-list-name&quot;&gt;
+            &lt;span&gt;&#x4ECA;&#x5E74;&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;alarm-list-value&quot;&gt;{{thisyear}}&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;p class=&quot;alarm-list-name&quot;&gt;
+            &lt;span&gt;&#x73AF;&#x6BD4;&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;alarm-list-value&quot; :data-state=&quot;hbstate&quot;&gt;{{huanbi}}&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;p class=&quot;alarm-list-name&quot;&gt;
+            &lt;span&gt;&#x53BB;&#x5E74;&lt;/span&gt;
+          &lt;/p&gt;
+          &lt;p class=&quot;alarm-list-value&quot;&gt;{{lastyear}}&lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;caseResolved&quot;&gt;
+      &lt;h2 class=&quot;chart-title&quot;&gt;&#x5E74;&#x5EA6;&#x51FA;&#x8B66;&#x6570;&lt;/h2&gt;
+      &lt;div class=&quot;case-resolved-chart&quot; id=&quot;caseResolvedChart&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import axios from &apos;axios&apos;
+  import api from &apos;../assets/scripts/tool/api&apos;
+  import Data from &apos;../data/fantasy/castle/left&apos;
+  import MultiPie from &apos;../assets/scripts/charts/multiPie&apos;
+  Data()
+
+  export default {
+    name: &apos;left&apos;,
+    data () {
+      return {
+        thisyear: &apos;&apos;,
+        hbstate: &apos;&apos;,
+        huanbi: &apos;&apos;,
+        lastyear: &apos;&apos;
+      }
+    },
+    mounted () {
+      const self = this
+      axios.get(api.iotalarm)
+        .then(response =&gt; {
+          const data = response.data.result
+          self.dealDDC(data.diandongche)
+          self.dealCase(data.caseResolved)
+        })
+        .catch(error =&gt; {
+          console.error(error)
+        })
+    },
+    methods: {
+      dealDDC (data) {
+        let hbstate
+        let hbValue = data.huanbi
+        if (hbValue &lt; 0) {
+          hbstate = &apos;down&apos;
+          hbValue = Math.abs(hbValue)
+        } else if (hbValue === 0) {
+          hbstate = &apos;level&apos;
+          hbValue = &apos;- 0&apos;
+        } else if (hbValue &gt; 0) {
+          hbstate = &apos;up&apos;
+          hbValue = Math.abs(hbValue)
+        }
+        this.thisyear = data.thisyear
+        this.hbstate = hbstate
+        this.huanbi = hbValue
+        this.lastyear = data.lastyear
+      },
+      dealCase (data) {
+        const config = {}
+        const multiPie = new MultiPie(&apos;.case-resolved-chart&apos;, config)
+        multiPie.render(data)
+      }
+    }
+  }
+&lt;/script&gt;
+&lt;style scoped&gt;
+  .diandongche {
+    position: absolute;
+    top: 220px;
+    left: 60px;
+    width: 680px;
+    height: 600px;
+    background: url(../assets/images/common/tip-title-bg.png) no-repeat top left;
+  }
+
+  .alarm-list {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+  }
+
+  .alarm-list li {
+    width: 50%;
+    height: 190px;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .alarm-list-name span {
+    font-size: 50px;
+    color: #b4c7f9;
+    position: relative;
+    display: inline-block;
+  }
+
+  .alarm-list-name span:after {
+    content: &quot;&#x4EF6;&quot;;
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: -80px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 46px;
+    color: #8da5e4;
+    height: 46px;
+    width: 60px;
+    background: #0c3f87;
+    border: 1px solid #443cba;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-name span:after {
+    display: none;
+  }
+
+  .alarm-list-value {
+    font-size: 60px;
+    color: #1aac4e;
+    position: relative;
+    display: inline-block;
+    margin-top:20px;
+  }
+
+  .alarm-list li:first-child .alarm-list-value {
+    font-size: 90px;
+    color: #44ff86;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value {
+    margin-top: 34px;
+    text-indent: 40px;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;up&quot;] {
+    color: #ff4444;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;level&quot;] {
+    color: #b4c7f9;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;down&quot;] {
+    color: #44ff86;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value:after {
+    content: &quot;%&quot;;
+    display: inline-block;
+    position: absolute;
+    bottom: 4px;
+    right: -24px;
+    font-size: 30px;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state]:before {
+    content: &quot;&quot;;
+    display: inline-block;
+    position: absolute;
+    width: 25px;
+    height: 26px;
+    top: 26px;
+    left: 0px;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;up&quot;]:before {
+    background: url(../assets/images/common/huanbi-up.png) no-repeat;
+  }
+
+  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;down&quot;]:before {
+    background: url(../assets/images/common/huanbi-down.png) no-repeat;
+  }
+
+  .caseResolved {
+    position: absolute;
+    top: 830px;
+    left: 60px;
+    background: url(../assets/images/common/tip-title-bg.png) no-repeat top left;
+  }
+
+  .case-resolved-chart {
+    width: 900px;
+    height: 270px;
+    margin-top: 130px;
+  }
+&lt;/style&gt;
+</code></pre>
+<h5 id="srcdatafantasycastleleftjs">/src/data/fantasy/castle/left.js</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> {
+  urlReg
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../../assets/scripts/tool/utils&apos;</span>
+
+<span class="hljs-keyword">import</span> Mock <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;mockjs&apos;</span>
+
+<span class="hljs-keyword">const</span> data = () =&gt; {
+  Mock.mock(urlReg(<span class="hljs-string">&apos;/iot/overview/alarm&apos;</span>), {
+    <span class="hljs-string">&apos;code&apos;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&apos;msg&apos;</span>: <span class="hljs-string">&apos;success&apos;</span>,
+    <span class="hljs-string">&apos;result&apos;</span>: {
+      <span class="hljs-string">&apos;diandongche&apos;</span>: {
+        <span class="hljs-string">&apos;lastyear&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>,
+        <span class="hljs-string">&apos;thisyear&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>,
+        <span class="hljs-string">&apos;huanbi&apos;</span>: <span class="hljs-string">&apos;@integer(-100,100)&apos;</span>
+      },
+      <span class="hljs-string">&apos;caseResolved|3&apos;</span>: [{
+        <span class="hljs-string">&apos;name|+1&apos;</span>: [<span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E00;&apos;</span>, <span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E8C;&apos;</span>, <span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E09;&apos;</span>],
+        <span class="hljs-string">&apos;value&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>
+      }]
+    }
+  })
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> data
+</code></pre>
+<h5 id="srcassetsscriptschartsmultipiejs">/src/assets/scripts/charts/multiPie.js</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> d3 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;d3&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiPie</span> </span>{
+  <span class="hljs-comment">/**
+   *  &#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x9879;
+   *  @return   {[Object]}  [&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x9879;]
+   */</span>
+  defaultSetting() {
+    <span class="hljs-keyword">return</span> {
+      width: <span class="hljs-number">900</span>,
+      height: <span class="hljs-number">270</span>,
+      radius: [<span class="hljs-number">50</span>, <span class="hljs-number">66</span>], <span class="hljs-comment">// [innerRadius,outerRadius]</span>
+      gap: <span class="hljs-number">100</span>, <span class="hljs-comment">// &#x76F8;&#x90BB;&#x4E24;&#x4E2A;&#x56FE;&#x5F62;&#x7684;&#x95F4;&#x8DDD;</span>
+      margin: { <span class="hljs-comment">// &#x591A;&#x4E2A;&#x56FE;&#x5F62;&#x5E03;&#x5C40;&#xFF1A;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#xFF0C;&#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x6309;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;&#x5C45;&#x4E2D;&#x653E;&#x7F6E;&#xFF0C;&#x6545;&#x53EA;&#x8BBE;&#x7F6E;&#x5DE6;&#x4FA7;&#x8DDD;&#x79BB;left&#x5373;&#x53EF;</span>
+        left: <span class="hljs-number">10</span>
+      },
+      label: { <span class="hljs-comment">// &#x540D;&#x79F0;&#x6587;&#x672C;&#x6837;&#x5F0F;</span>
+        normal: {
+          fontSize: <span class="hljs-number">32</span>,
+          color: <span class="hljs-string">&apos;#46aaff&apos;</span>,
+          anchor: <span class="hljs-string">&apos;middle&apos;</span>,
+          cursor: <span class="hljs-string">&apos;pointer&apos;</span>,
+          top: <span class="hljs-number">46</span> <span class="hljs-comment">// &#x540D;&#x79F0;&#x6587;&#x672C;&#x8DDD;&#x79BB;&#x56FE;&#x6848;&#x9876;&#x90E8;&#x7684;&#x8DDD;&#x79BB;</span>
+        },
+        emphasis: {
+          fontSize: <span class="hljs-number">32</span>,
+          color: <span class="hljs-string">&apos;#74ffd3&apos;</span>,
+          anchor: <span class="hljs-string">&apos;middle&apos;</span>,
+          cursor: <span class="hljs-string">&apos;pointer&apos;</span>,
+          top: <span class="hljs-number">46</span> <span class="hljs-comment">// &#x540D;&#x79F0;&#x6587;&#x672C;&#x8DDD;&#x79BB;&#x56FE;&#x6848;&#x9876;&#x90E8;&#x7684;&#x8DDD;&#x79BB;</span>
+        }
+      },
+      itemStyle: {
+        label: { <span class="hljs-comment">// value&#x503C;&#x6587;&#x672C;&#x6837;&#x5F0F;</span>
+          fontSize: <span class="hljs-number">32</span>,
+          color: <span class="hljs-string">&apos;#46aaff&apos;</span>,
+          anchor: <span class="hljs-string">&apos;middle&apos;</span>,
+          cursor: <span class="hljs-string">&apos;pointer&apos;</span>,
+          top: <span class="hljs-number">10</span> <span class="hljs-comment">// value&#x503C;&#x6587;&#x672C;&#x8DDD;&#x79BB;&#x5BB9;&#x5668;&#x4E2D;&#x7EBF;&#x7684;&#x504F;&#x79FB;&#x8DDD;&#x79BB;&#xFF0C;&#x9ED8;&#x8BA4;&#x653E;&#x5728;&#x997C;&#x56FE;&#x6B63;&#x4E2D;&#x95F4;</span>
+        },
+        color: [ <span class="hljs-comment">// &#x997C;&#x56FE;&#x586B;&#x5145;&#x8272;</span>
+          [<span class="hljs-string">&apos;#4a8ce5&apos;</span>, <span class="hljs-string">&apos;black&apos;</span>],
+          [<span class="hljs-string">&apos;#44ff86&apos;</span>, <span class="hljs-string">&apos;black&apos;</span>],
+          [<span class="hljs-string">&apos;#dccc5c&apos;</span>, <span class="hljs-string">&apos;black&apos;</span>]
+        ]
+      }
+    }
+  }
+  <span class="hljs-comment">/**
+   *  &#x521D;&#x59CB;&#x5316;&#xFF0C;&#x521B;&#x5EFA;&#x5BB9;&#x5668;
+   *  @param    {String}  selector &#x56FE;&#x8868;&#x5BB9;&#x5668;&#xFF0C;&#x652F;&#x6301;class&#x6216;id
+   *  @param    {Object}  option   &#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x63A7;&#x5236;&#x56FE;&#x5F62;&#x6837;&#x5F0F;
+   *  @return   {[type]}  [description]
+   */</span>
+  <span class="hljs-keyword">constructor</span>(selector, option = {}) {
+    <span class="hljs-keyword">const</span> defaultSetting = <span class="hljs-keyword">this</span>.defaultSetting()
+    <span class="hljs-keyword">this</span>.config = <span class="hljs-built_in">Object</span>.assign(defaultSetting, option)
+    <span class="hljs-keyword">const</span> {
+      width,
+      height
+    } = <span class="hljs-keyword">this</span>.config
+    <span class="hljs-comment">// &#x521B;&#x5EFA;svg</span>
+    <span class="hljs-keyword">this</span>.svg = d3.select(selector)
+      .append(<span class="hljs-string">&apos;svg&apos;</span>)
+      .attr(<span class="hljs-string">&apos;width&apos;</span>, width)
+      .attr(<span class="hljs-string">&apos;height&apos;</span>, height)
+  }
+  <span class="hljs-comment">/**
+   *  &#x5904;&#x7406;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;pie&#x5E03;&#x5C40;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;
+   *  @param    {Array}  data    &#x539F;&#x59CB;&#x6570;&#x636E;
+   *  @return   {Array}  dataset &#x8F6C;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;
+   */</span>
+  getDataset(data) {
+    <span class="hljs-keyword">let</span> dataset = []
+    <span class="hljs-keyword">const</span> clockwisePie = d3.pie() <span class="hljs-comment">// &#x987A;&#x65F6;&#x9488;&#xFF0C;&#x9488;&#x5BF9;&#x6570;&#x636E;&#x7C7B;&#x578B;:[small,bigger]</span>
+    <span class="hljs-keyword">const</span> anticlockwisePie = d3.pie() <span class="hljs-comment">// &#x9006;&#x65F6;&#x9488;,&#x9488;&#x5BF9;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1A;[bigger,small]</span>
+      .startAngle(<span class="hljs-number">0</span>)
+      .endAngle(<span class="hljs-number">-2</span> * <span class="hljs-built_in">Math</span>.PI)
+    <span class="hljs-comment">// &#x6C42;&#x53D6;&#x603B;&#x6570;&#xFF1A;sum</span>
+    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>
+    data.map(d =&gt; {
+      sum += <span class="hljs-built_in">parseInt</span>(d.value, <span class="hljs-number">10</span>)
+    })
+    data.map((d) =&gt; {
+      <span class="hljs-keyword">let</span> value = d.value
+      <span class="hljs-keyword">let</span> rate = <span class="hljs-built_in">Math</span>.max(<span class="hljs-built_in">Math</span>.floor(value * <span class="hljs-number">100</span> / sum), <span class="hljs-number">1</span>)
+      <span class="hljs-keyword">let</span> rateData = [rate, <span class="hljs-number">100</span> - rate]
+      <span class="hljs-keyword">let</span> dealData = rate &gt;= <span class="hljs-number">50</span> ? clockwisePie(rateData) : anticlockwisePie(rateData)
+      dataset.push(dealData)
+    })
+    <span class="hljs-keyword">return</span> dataset
+  }
+  <span class="hljs-comment">/**
+   *  &#x7ED8;&#x5236;&#x56FE;&#x6848;&#x5E95;&#x90E8;&#x7684;&#x540D;&#x79F0;&#x6587;&#x672C;
+   *  @param    {Object}  chart &#x5305;&#x88F9;&#x6587;&#x672C;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
+   *  @param    {Object}  info  &#x5355;&#x7EC4;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;name&#x548C;value
+   *  @return   {[type]}  [description]
+   */</span>
+  renderName(chart, info) {
+    <span class="hljs-keyword">const</span> {
+      radius: [, outerRadius],
+      label: {
+        normal: {
+          fontSize: fontSizeNor,
+          color: colorNor,
+          anchor: anchorNor,
+          top: topNor,
+          cursor: cursorNor
+        },
+        emphasis: {
+          fontSize: fontSizeEmp,
+          color: colorEmp,
+          anchor: anchorEmp,
+          top: topEmp,
+          cursor: cursorEmp
+        }
+      }
+    } = <span class="hljs-keyword">this</span>.config
+    chart.select(<span class="hljs-string">&apos;.pie-name&apos;</span>)
+      .attr(<span class="hljs-string">&apos;font-size&apos;</span>, fontSizeNor)
+      .attr(<span class="hljs-string">&apos;fill&apos;</span>, colorNor)
+      .attr(<span class="hljs-string">&apos;text-anchor&apos;</span>, anchorNor)
+      .attr(<span class="hljs-string">&apos;transform&apos;</span>, <span class="hljs-string">`translate(0, <span class="hljs-subst">${outerRadius + topNor}</span>)`</span>)
+      .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursorNor)
+      .text(info.name)
+      .on(<span class="hljs-string">&apos;mouseover&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        d3.select(<span class="hljs-keyword">this</span>)
+          .attr(<span class="hljs-string">&apos;font-size&apos;</span>, fontSizeEmp)
+          .attr(<span class="hljs-string">&apos;fill&apos;</span>, colorEmp)
+          .attr(<span class="hljs-string">&apos;text-anchor&apos;</span>, anchorEmp)
+          .attr(<span class="hljs-string">&apos;transform&apos;</span>, <span class="hljs-string">`translate(0, <span class="hljs-subst">${outerRadius + topEmp}</span>)`</span>)
+          .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursorEmp)
+      })
+      .on(<span class="hljs-string">&apos;mouseout&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        d3.select(<span class="hljs-keyword">this</span>)
+          .attr(<span class="hljs-string">&apos;font-size&apos;</span>, fontSizeNor)
+          .attr(<span class="hljs-string">&apos;fill&apos;</span>, colorNor)
+          .attr(<span class="hljs-string">&apos;text-anchor&apos;</span>, anchorNor)
+          .attr(<span class="hljs-string">&apos;transform&apos;</span>, <span class="hljs-string">`translate(0, <span class="hljs-subst">${outerRadius + topNor}</span>)`</span>)
+          .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursorNor)
+      })
+  }
+  <span class="hljs-comment">/**
+   *  &#x7ED8;&#x5236;&#x56FE;&#x6848;&#x4E2D;&#x95F4;&#x7684;value&#x503C;&#x6587;&#x672C;
+   *  @param    {Object}  chart &#x5305;&#x88F9;&#x6587;&#x672C;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
+   *  @param    {[type]}  info  &#x5355;&#x7EC4;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;name&#x548C;value
+   *  @return   {[type]}  [description]
+   */</span>
+  renderValue(chart, info) {
+    <span class="hljs-keyword">const</span> {
+      itemStyle: {
+        label: {
+          fontSize,
+          color,
+          anchor,
+          cursor,
+          top
+        }
+      }
+    } = <span class="hljs-keyword">this</span>.config
+    chart.select(<span class="hljs-string">&apos;.pie-value&apos;</span>)
+      .attr(<span class="hljs-string">&apos;font-size&apos;</span>, fontSize)
+      .attr(<span class="hljs-string">&apos;fill&apos;</span>, color)
+      .attr(<span class="hljs-string">&apos;text-anchor&apos;</span>, anchor)
+      .attr(<span class="hljs-string">&apos;transform&apos;</span>, <span class="hljs-string">`translate(0,<span class="hljs-subst">${top}</span>)`</span>)
+      .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursor)
+      .text(info.value)
+  }
+  <span class="hljs-comment">/**
+   *  &#x7ED8;&#x5236;&#x5355;&#x4E2A;Pie&#x56FE;&#x6848;
+   *  @param    {Objec}  chartName  &#x5355;&#x4E2A;&#x56FE;&#x6848;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
+   *  @param    {Array}   pieData   &#x7ED8;&#x5236;&#x997C;&#x56FE;&#x7684;&#x6570;&#x636E;&#xFF08;&#x5DF2;&#x7ECF;&#x8FC7;&#x5E03;&#x5C40;&#x5904;&#x7406;&#xFF09;
+   *  @param    {Object}  info      &#x8BE5;&#x56FE;&#x6848;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;name&#x548C;value
+   *  @param    {Array}   color     &#x586B;&#x5145;&#x997C;&#x56FE;&#x7684;&#x4E24;&#x4E2A;&#x989C;&#x8272;&#x503C;
+   *  @return   {[type]}  [description]
+   */</span>
+  creatPie(chartName, pieData, info, color) {
+    <span class="hljs-keyword">const</span> {
+      radius: [innerRadius, outerRadius]
+    } = <span class="hljs-keyword">this</span>.config
+    <span class="hljs-keyword">const</span> arc = d3.arc()
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius)
+    <span class="hljs-keyword">const</span> chart = <span class="hljs-keyword">this</span>.svg.select(chartName)
+    <span class="hljs-keyword">const</span> update = chart.selectAll(<span class="hljs-string">&apos;path&apos;</span>).data(pieData)
+    <span class="hljs-keyword">const</span> enter = update.enter()
+    update.exit().remove()
+    <span class="hljs-comment">// &#x7ED8;&#x5236;&#x997C;&#x56FE;&#x56FE;&#x6848;</span>
+    enter.append(<span class="hljs-string">&apos;path&apos;</span>)
+    chart.selectAll(<span class="hljs-string">&apos;path&apos;</span>).data(pieData)
+      .attr(<span class="hljs-string">&apos;fill&apos;</span>, (d, i) =&gt; {
+        <span class="hljs-keyword">return</span> color[i]
+      })
+      .attr(<span class="hljs-string">&apos;d&apos;</span>, d =&gt; {
+        <span class="hljs-keyword">return</span> arc(d)
+      })
+    <span class="hljs-comment">// &#x7ED8;&#x5236;&#x540D;&#x79F0;--name</span>
+    enter.append(<span class="hljs-string">&apos;text&apos;</span>).attr(<span class="hljs-string">&apos;class&apos;</span>, <span class="hljs-string">&apos;pie-name&apos;</span>)
+    <span class="hljs-keyword">this</span>.renderName(chart, info)
+
+    <span class="hljs-comment">// &#x7ED8;&#x5236;value&#x503C;</span>
+    enter.append(<span class="hljs-string">&apos;text&apos;</span>).attr(<span class="hljs-string">&apos;class&apos;</span>, <span class="hljs-string">&apos;pie-value&apos;</span>)
+    <span class="hljs-keyword">this</span>.renderValue(chart, info)
+  }
+  render(data) {
+    <span class="hljs-keyword">let</span> dataset = <span class="hljs-keyword">this</span>.getDataset(data)
+    <span class="hljs-keyword">const</span> update = <span class="hljs-keyword">this</span>.svg.selectAll(<span class="hljs-string">&apos;.item&apos;</span>)
+      .data(dataset)
+    update.enter().append(<span class="hljs-string">&apos;g&apos;</span>).attr(<span class="hljs-string">&apos;class&apos;</span>, <span class="hljs-string">&apos;item&apos;</span>)
+    update.exit().remove()
+    <span class="hljs-comment">// &#x591A;&#x4E2A;&#x56FE;&#x5F62;&#x5E03;&#x5C40;&#xFF1A;&#x4ECE;&#x5DE6;&#x5F80;&#x53F3;&#xFF0C;&#x76F8;&#x90BB;&#x56FE;&#x5F62;&#x95F4;&#x9694;&#x4E3A;&#x914D;&#x7F6E;&#x9879;----config.gap</span>
+    <span class="hljs-keyword">const</span> {
+      height,
+      radius: [, R],
+      gap,
+      margin: {
+        left
+      },
+      itemStyle: {
+        color
+      }
+    } = <span class="hljs-keyword">this</span>.config
+    <span class="hljs-keyword">this</span>.svg.selectAll(<span class="hljs-string">&apos;.item&apos;</span>).data(dataset)
+      .attr(<span class="hljs-string">&apos;transform&apos;</span>, (d, i) =&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`translate(<span class="hljs-subst">${R + left + 2 * R * i + i * gap}</span>,<span class="hljs-subst">${height / 2}</span>)`</span>
+      })
+      .attr(<span class="hljs-string">&apos;class&apos;</span>, (d, i) =&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`item<span class="hljs-subst">${i}</span> item`</span>
+      })
+    <span class="hljs-comment">// &#x9010;&#x4E2A;&#x7ED8;&#x5236;&#x997C;&#x56FE;</span>
+    dataset.map((d, i) =&gt; {
+      <span class="hljs-keyword">this</span>.creatPie(<span class="hljs-string">`.item<span class="hljs-subst">${i}</span>`</span>, d, data[i], color[i])
+    })
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-实现顶部信息展示.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 03-实现顶部信息展示">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"04-构建左侧信息展示","level":"1.3.4","depth":2,"previous":{"title":"03-实现顶部信息展示","level":"1.3.3","depth":2,"path":"project/03-实现顶部信息展示.md","ref":"project/03-实现顶部信息展示.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"project/04-构建左侧信息展示.md","mtime":"2020-02-24T04:55:27.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T04:57:05.444Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

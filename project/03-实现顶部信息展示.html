@@ -1,0 +1,703 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>03-实现顶部信息展示 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-构建左侧信息展示.html" />
+    
+    
+    <link rel="prev" href="02-搭建页面结构.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    数据可视化基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basics/01-什么是数据可视化.html">
+            
+                <a href="../basics/01-什么是数据可视化.html">
+            
+                    
+                    01-什么是数据可视化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basics/02-ECharts 轻松上手.html">
+            
+                <a href="../basics/02-ECharts 轻松上手.html">
+            
+                    
+                    02-ECharts 轻松上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../basics/03-Vue + Echart 项目实战.html">
+            
+                <a href="../basics/03-Vue + Echart 项目实战.html">
+            
+                    
+                    03-Vue+Echart 项目实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../basics/04-D3快速入门.html">
+            
+                <a href="../basics/04-D3快速入门.html">
+            
+                    
+                    04-D3快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../basics/05-D3进阶.html">
+            
+                <a href="../basics/05-D3进阶.html">
+            
+                    
+                    05-D3进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据可视化项目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="01-项目环境搭建.html">
+            
+                <a href="01-项目环境搭建.html">
+            
+                    
+                    01-项目环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-搭建页面结构.html">
+            
+                <a href="02-搭建页面结构.html">
+            
+                    
+                    02-搭建页面结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="03-实现顶部信息展示.html">
+            
+                <a href="03-实现顶部信息展示.html">
+            
+                    
+                    03-实现顶部信息展示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="04-构建左侧信息展示.html">
+            
+                <a href="04-构建左侧信息展示.html">
+            
+                    
+                    04-构建左侧信息展示
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >03-实现顶部信息展示</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5B9E;&#x73B0;&#x9876;&#x90E8;&#x4FE1;&#x606F;&#x5C55;&#x793A;">&#x5B9E;&#x73B0;&#x9876;&#x90E8;&#x4FE1;&#x606F;&#x5C55;&#x793A;</h1>
+<h4 id="1&#x3001;app-&#x7EC4;&#x4EF6;-&#x4FEE;&#x6539;">1&#x3001;App &#x7EC4;&#x4EF6; &#x4FEE;&#x6539;</h4>
+<p>/App.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;castle side-r-wrap&quot;&gt;
+    &lt;TopSide :title=&quot;title&quot;&gt;&lt;/TopSide&gt;
+    &lt;TopMid&gt;&lt;/TopMid&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import TopSide from &apos;@/components/TopSide&apos;
+import TopMid from &apos;@/components/TopMid&apos;
+
+export default {
+  name: &apos;Castle&apos;,
+  data () {
+    return {
+      title: &apos;&#x516C;&#x5B89;&#x8B66;&#x60C5;&#x53EF;&#x89C6;&#x5316;&apos;
+    }
+  },
+  components: {
+    TopSide,
+    TopMid
+  }
+}
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre>
+<h4 id="2&#x3001;&#x6784;&#x5EFA;topsidevue">2&#x3001;&#x6784;&#x5EFA;TopSide.vue</h4>
+<p>/src/components/TopSide.vue</p>
+<p>Mock&#x6A21;&#x5757;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;top-side&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;{{title}}&lt;/div&gt;
+    &lt;div class=&quot;time&quot;&gt;{{yyyyMMdd}}
+      &lt;strong&gt;{{HHmm}}&lt;/strong&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import Mock from &apos;mockjs&apos;
+  export default {
+    props: [&apos;title&apos;],
+    name: &apos;topSide&apos;,
+    data () {
+      return {
+        yyyyMMdd: &apos;&apos;,
+        HHmm: &apos;&apos;
+      }
+    },
+    mounted () {
+      const date = Mock.Random.now(&apos;yyyyMMddHHmm&apos;)
+      const year = date.substring(0, 4)
+      const month = date.substring(4, 6)
+      const day = date.substring(6, 8)
+      const hour = date.substring(8, 10)
+      const minute = date.substring(10, 12)
+      this.yyyyMMdd = `${year}.${month}.${day}`
+      this.HHmm = `${hour}:${minute}`
+    }
+  }
+&lt;/script&gt;
+&lt;style&gt;
+  .top-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 58px;
+    color: #fdfeff;
+    position: absolute;
+    left: 62px;
+    top: 30px;
+    text-shadow: 0 0 5px #fbfbfb, 0 0 10px #fbfbfb, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 75px #228DFF;
+  }
+
+  .time {
+    position: absolute;
+    top: 30px;
+    right: 55px;
+    color: #fdfeff;
+    font-size: 36px;
+    text-shadow: 0 0 5px #fbfbfb, 0 0 10px #fbfbfb, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 75px #228DFF;
+  }
+
+  .time strong {
+    font-size: 60px;
+  }
+
+&lt;/style&gt;
+</code></pre>
+<h4 id="3&#x3001;&#x6784;&#x5EFA;-topmidvue">3&#x3001;&#x6784;&#x5EFA; TopMid.vue</h4>
+<p>/src/components/TopSide.vue</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;top-mid&quot;&gt;
+    &lt;div class=&quot;item&quot; v-for=&quot;item in dataset&quot; :key=&quot;item.id&quot;&gt;
+      &lt;span class=&quot;name&quot;&gt;{{item.name}}
+        &lt;strong&gt;{{item.value}}&lt;/strong&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;huanbi&quot;&gt;&#x73AF;&#x6BD4;
+        &lt;strong :data-state=&quot;item.state&quot;&gt;{{item.huanbi}}
+          &lt;em&gt;%&lt;/em&gt;
+        &lt;/strong&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  import axios from &apos;axios&apos;
+  import api from &apos;../assets/scripts/tool/api&apos;
+  import Data from &apos;../data/fantasy/castle/top&apos;
+  Data()
+  export default {
+    name: &apos;topMid&apos;,
+    data () {
+      return {
+        dataset: []
+      }
+    },
+    mounted () {
+      const self = this
+      axios.get(api.castleTop)
+        .then(response =&gt; {
+          const data = response.data.result.top
+          data.map(item =&gt; {
+            let state
+            let huanbi
+            if (item.huanbi &gt; 0) {
+              state = &apos;up&apos;
+              huanbi = item.huanbi
+            } else if (item.huanbi === 0) {
+              state = &apos;level&apos;
+              huanbi = item.huanbi
+            } else if (item.huanbi &lt; 0) {
+              state = &apos;down&apos;
+              huanbi = Math.abs(item.huanbi)
+            }
+            self.dataset.push({
+              name: item.name,
+              value: item.value,
+              huanbi: huanbi,
+              state: state
+            })
+          })
+        })
+        .catch(error =&gt; {
+          console.error(error)
+        })
+    }
+  }
+&lt;/script&gt;
+&lt;style&gt;
+  .top-mid {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 1650px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 24px 20px 0;
+    background: url(../assets/images/common/top-center-bg.png) no-repeat top center;
+    background-size: 100% 100%;
+    transform: translate(-50%, 0);
+    margin-left: -20px;
+  }
+
+  .item {
+    max-width: 33.33%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .name {
+    font-size: 40px;
+    color: #b4c7f9;
+  }
+
+  .name strong {
+    font-size: 50px;
+    color: #ff8244;
+    font-weight: normal;
+    margin: 0 10px;
+  }
+
+  .huanbi {
+    font-size: 30px;
+    color: #b4c7f9;
+  }
+
+  .huanbi strong {
+    font-size: 40px;
+    margin: 0 10px 0 36px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .huanbi em {
+    font-size: 30px;
+  }
+
+  .huanbi strong[data-state]:after {
+    content: &quot;&quot;;
+    display: inline-block;
+    position: absolute;
+    width: 25px;
+    height: 26px;
+    top: 14px;
+    left: -30px;
+  }
+
+  .huanbi strong[data-state=&quot;up&quot;] {
+    color: #ff4444;
+  }
+
+  .huanbi strong[data-state=&quot;level&quot;] {
+    color: #b4c7f9;
+  }
+
+  .huanbi strong[data-state=&quot;down&quot;] {
+    color: #44ff86;
+  }
+
+  .huanbi strong[data-state=&quot;up&quot;]:after {
+    background: url(../assets/images/common/huanbi-up.png) no-repeat;
+  }
+
+  .huanbi strong[data-state=&quot;down&quot;]:after {
+    background: url(../assets/images/common/huanbi-down.png) no-repeat;
+  }
+
+&lt;/style&gt;
+</code></pre>
+<h5 id="srcassetsscriptstoolapi">/src/assets/scripts/tool/api</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> isOnline = <span class="hljs-literal">false</span>
+<span class="hljs-keyword">const</span> onlineApiHost = isOnline ? <span class="hljs-string">&apos;http://88.888.88.88:8888/project/&apos;</span> : <span class="hljs-string">&apos;http://localhost:8080/&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  castleTop: onlineApiHost + <span class="hljs-string">&apos;fantasy/castle/top&apos;</span>,
+  iotalarm: onlineApiHost + <span class="hljs-string">&apos;iot/overview/alarm&apos;</span>,
+  iottop5: onlineApiHost + <span class="hljs-string">&apos;iot/overview/top5&apos;</span>,
+  iottrend: onlineApiHost + <span class="hljs-string">&apos;iot/overview/trend&apos;</span>,
+  district: onlineApiHost + <span class="hljs-string">&apos;stride/fireworks/city&apos;</span>,
+  list: onlineApiHost + <span class="hljs-string">&apos;stride/fireworks/list&apos;</span>,
+  dotemap: onlineApiHost + <span class="hljs-string">&apos;fantasy/castle/dotemap&apos;</span>
+}
+</code></pre>
+<h5 id="srcdatafantasycastletop">/src/data/fantasy/castle/top</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> {
+  urlReg
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../../assets/scripts/tool/utils&apos;</span>
+
+<span class="hljs-keyword">import</span> Mock <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;mockjs&apos;</span>
+
+<span class="hljs-keyword">const</span> data = () =&gt; {
+  Mock.mock(urlReg(<span class="hljs-string">&apos;fantasy/castle/top&apos;</span>), {
+    <span class="hljs-string">&apos;code&apos;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&apos;msg&apos;</span>: <span class="hljs-string">&apos;success&apos;</span>,
+    <span class="hljs-string">&apos;result&apos;</span>: {
+      <span class="hljs-string">&apos;top|3&apos;</span>: [{
+        <span class="hljs-string">&apos;name|+1&apos;</span>: [<span class="hljs-string">&apos;&#x672C;&#x5468;&apos;</span>, <span class="hljs-string">&apos;&#x672C;&#x6708;&apos;</span>, <span class="hljs-string">&apos;&#x672C;&#x5E74;&apos;</span>],
+        <span class="hljs-string">&apos;value&apos;</span>: <span class="hljs-string">&apos;@natural(100,10000)&apos;</span>,
+        <span class="hljs-string">&apos;huanbi&apos;</span>: <span class="hljs-string">&apos;@integer(-100,100)&apos;</span>
+      }]
+    }
+  })
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> data
+</code></pre>
+<h5 id="srcassetsscriptstoolutils">/src/assets/scripts/tool/utils</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> $ <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;jquery&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> urlReg = (name) =&gt; {
+  <span class="hljs-keyword">const</span> protocols = <span class="hljs-string">&apos;((https?|s?ftp|irc[6s]?|git|afp|telnet|smb):\\/\\/)?&apos;</span>
+  <span class="hljs-keyword">const</span> userInfo = <span class="hljs-string">&apos;([a-z0-9]\\w*(\\:[\\S]+)?\\@)?&apos;</span>
+  <span class="hljs-keyword">const</span> domain = <span class="hljs-string">&apos;([a-z0-9]([\\w]*[a-z0-9])*\\.)?[a-z0-9]\\w*\\.[a-z]{2,}(\\.[a-z]{2,})?&apos;</span>
+  <span class="hljs-keyword">const</span> port = <span class="hljs-string">&apos;(:\\d{1,5})?&apos;</span>
+  <span class="hljs-keyword">const</span> ip = <span class="hljs-string">&apos;\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}&apos;</span>
+  <span class="hljs-keyword">const</span> address = <span class="hljs-string">&apos;(\\/\\S*)?&apos;</span>
+  <span class="hljs-keyword">const</span> domainType = [protocols, userInfo, domain, port, address, name, address]
+  <span class="hljs-keyword">const</span> ipType = [protocols, userInfo, ip, port, address, name, address]
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&apos;^&apos;</span> + domainType.join(<span class="hljs-string">&apos;&apos;</span>) + <span class="hljs-string">&apos;$&apos;</span>, <span class="hljs-string">&apos;i&apos;</span>) || <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&apos;^&apos;</span> + ipType.join(<span class="hljs-string">&apos;&apos;</span>) + <span class="hljs-string">&apos;$&apos;</span>, <span class="hljs-string">&apos;i&apos;</span>)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> tooltip = (option) =&gt; {
+  <span class="hljs-keyword">const</span> el = option.el
+  <span class="hljs-keyword">let</span> location = option.location
+  <span class="hljs-keyword">const</span> data = option.data
+  <span class="hljs-keyword">const</span> length = data.length
+  <span class="hljs-keyword">let</span> text = <span class="hljs-string">&apos;&apos;</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+    <span class="hljs-keyword">if</span> (data[i].color) {
+      text += <span class="hljs-string">`&lt;span style=&quot;color:<span class="hljs-subst">${data[i].color}</span>&quot;&gt;<span class="hljs-subst">${data[i].name}</span> : <span class="hljs-subst">${data[i].value}</span>&lt;/span&gt;&lt;br&gt;`</span>
+    } <span class="hljs-keyword">else</span> {
+      text += <span class="hljs-string">`&lt;span&gt;<span class="hljs-subst">${data[i].name}</span> : <span class="hljs-subst">${data[i].value}</span>&lt;/span&gt;&lt;br&gt;`</span>
+    }
+  }
+  $(el).html(text)
+  <span class="hljs-keyword">const</span> globalWidth = $(<span class="hljs-string">&apos;body&apos;</span>).outerWidth()
+  <span class="hljs-keyword">const</span> elWidth = $(el).outerWidth()
+  <span class="hljs-keyword">const</span> elHeight = $(el).outerHeight()
+  location.x = location.x - elWidth / <span class="hljs-number">2</span>
+  location.y = location.y - elHeight - <span class="hljs-number">10</span>
+  <span class="hljs-keyword">if</span> (location.x + elWidth / <span class="hljs-number">2</span> &gt; globalWidth) {
+    location.x = globalWidth - elWidth
+  }
+  $(el).css({
+    left: location.x,
+    top: location.y
+  })
+  <span class="hljs-keyword">return</span> $(el)
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-搭建页面结构.html" class="navigation navigation-prev " aria-label="Previous page: 02-搭建页面结构">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-构建左侧信息展示.html" class="navigation navigation-next " aria-label="Next page: 04-构建左侧信息展示">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"03-实现顶部信息展示","level":"1.3.3","depth":2,"next":{"title":"04-构建左侧信息展示","level":"1.3.4","depth":2,"path":"project/04-构建左侧信息展示.md","ref":"project/04-构建左侧信息展示.md","articles":[]},"previous":{"title":"02-搭建页面结构","level":"1.3.2","depth":2,"path":"project/02-搭建页面结构.md","ref":"project/02-搭建页面结构.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"project/03-实现顶部信息展示.md","mtime":"2020-02-24T04:54:58.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-24T04:57:05.444Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
