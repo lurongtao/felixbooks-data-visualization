@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>04-构建左侧信息展示 · GitBook</title>
+        <title>05-环状图可视化 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="05-环状图可视化.html" />
+    <link rel="next" href="06-水泡图可视化.html" />
     
     
-    <link rel="prev" href="03-实现顶部信息展示.html" />
+    <link rel="prev" href="04-构建左侧信息展示.html" />
     
 
     </head>
@@ -239,7 +239,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.4" data-path="04-构建左侧信息展示.html">
+        <li class="chapter " data-level="1.3.4" data-path="04-构建左侧信息展示.html">
             
                 <a href="04-构建左侧信息展示.html">
             
@@ -252,7 +252,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="05-环状图可视化.html">
+        <li class="chapter active" data-level="1.3.5" data-path="05-环状图可视化.html">
             
                 <a href="05-环状图可视化.html">
             
@@ -313,7 +313,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >04-构建左侧信息展示</a>
+        <a href=".." >05-环状图可视化</a>
     </h1>
 </div>
 
@@ -328,281 +328,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6784;&#x5EFA;&#x5DE6;&#x4FA7;&#x4FE1;&#x606F;&#x5C55;&#x793A;">&#x6784;&#x5EFA;&#x5DE6;&#x4FA7;&#x4FE1;&#x606F;&#x5C55;&#x793A;</h1>
-<h4 id="1&#x3001;app-&#x7EC4;&#x4EF6;-&#x4FEE;&#x6539;">1&#x3001;App &#x7EC4;&#x4EF6; &#x4FEE;&#x6539;</h4>
-<p>/App.vue</p>
-<pre><code class="lang-vue">&lt;template&gt;
-  &lt;div class=&quot;castle side-r-wrap&quot;&gt;
-    &lt;TopSide :title=&quot;title&quot;&gt;&lt;/TopSide&gt;
-    &lt;TopMid&gt;&lt;/TopMid&gt;
-    &lt;Left&gt;&lt;/Left&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+                                <h1 id="&#x7ED8;&#x5236;&#x73AF;&#x72B6;&#x56FE;">&#x7ED8;&#x5236;&#x73AF;&#x72B6;&#x56FE;</h1>
+<p>&#x5229;&#x7528;D3&#x6309;&#x7167;&#x90E8;&#x95E8;&#x6784;&#x9020;&#x73AF;&#x72B6;&#x56FE;&#xFF0C;&#x6784;&#x5EFA;&#x5E74;&#x5E95;&#x51FA;&#x8B66;&#x6570;&#x53EF;&#x89C6;&#x5316;&#x3002;</p>
+<h3 id="1&#x3001;&#x4FEE;&#x6539;-leftvue">1&#x3001;&#x4FEE;&#x6539; Left.vue</h3>
+<h5 id="&#x6A21;&#x677F;">&#x6A21;&#x677F;</h5>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;caseResolved&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;chart-title&quot;</span>&gt;</span>&#x5E74;&#x5EA6;&#x51FA;&#x8B66;&#x6570;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;case-resolved-chart&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;caseResolvedChart&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h5 id="&#x903B;&#x8F91;">&#x903B;&#x8F91;</h5>
+<pre><code class="lang-js">mounted() {
+  axios.get(api.castleLeft)
+    .then(result =&gt; {
+      <span class="hljs-comment">// ...</span>
 
-&lt;script&gt;
-import TopSide from &apos;@/components/TopSide&apos;
-import TopMid from &apos;@/components/TopMid&apos;
-import Left from &apos;@/components/Left&apos;
+      <span class="hljs-comment">// 1&#x3001;&#x5728;mounted&#x91CC;&#x6DFB;&#x52A0;&#xFF1A;</span>
+      <span class="hljs-keyword">this</span>.dealCase(data.caseResolved)
+    })
+},
 
-export default {
-  name: &apos;Castle&apos;,
-  data () {
-    return {
-      title: &apos;&#x516C;&#x5B89;&#x8B66;&#x60C5;&#x53EF;&#x89C6;&#x5316;&apos;
-    }
-  },
-  components: {
-    TopSide,
-    TopMid,
-    Left
-  }
+<span class="hljs-comment">// 2&#x3001;&#x5728; methods &#x91CC;&#x6DFB;&#x52A0;&#xFF1A;</span>
+dealCase (data) {
+  <span class="hljs-keyword">const</span> config = {}
+  <span class="hljs-keyword">const</span> multiPie = <span class="hljs-keyword">new</span> MultiPie(<span class="hljs-string">&apos;.case-resolved-chart&apos;</span>, config)
+  multiPie.render(data)
 }
-&lt;/script&gt;
-&lt;style scoped&gt;
-&lt;/style&gt;
+
+<span class="hljs-comment">// 3&#x3001;&#x5BFC;&#x5165;&#x6A21;&#x5757;</span>
+<span class="hljs-keyword">import</span> MultiPie <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../assets/scripts/charts/multiPie&apos;</span>
 </code></pre>
-<h5 id="2&#x3001;&#x6784;&#x5EFA;-leftvue">2&#x3001;&#x6784;&#x5EFA; Left.vue</h5>
-<p>/src/components/Left.vue</p>
-<pre><code class="lang-vue">&lt;template&gt;
-  &lt;div class=&quot;left&quot;&gt;
-    &lt;div class=&quot;diandongche&quot;&gt;
-      &lt;h2 class=&quot;chart-title&quot;&gt;&#x5E74;&#x5EA6;&#x5211;&#x4E8B;&#x6848;&#x4EF6;&#x6570;
-      &lt;/h2&gt;
-      &lt;ul class=&quot;alarm-list&quot;&gt;
-        &lt;li&gt;
-          &lt;p class=&quot;alarm-list-name&quot;&gt;
-            &lt;span&gt;&#x4ECA;&#x5E74;&lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p class=&quot;alarm-list-value&quot;&gt;{{thisyear}}&lt;/p&gt;
-        &lt;/li&gt;
-        &lt;li&gt;
-          &lt;p class=&quot;alarm-list-name&quot;&gt;
-            &lt;span&gt;&#x73AF;&#x6BD4;&lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p class=&quot;alarm-list-value&quot; :data-state=&quot;hbstate&quot;&gt;{{huanbi}}&lt;/p&gt;
-        &lt;/li&gt;
-        &lt;li&gt;
-          &lt;p class=&quot;alarm-list-name&quot;&gt;
-            &lt;span&gt;&#x53BB;&#x5E74;&lt;/span&gt;
-          &lt;/p&gt;
-          &lt;p class=&quot;alarm-list-value&quot;&gt;{{lastyear}}&lt;/p&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;caseResolved&quot;&gt;
-      &lt;h2 class=&quot;chart-title&quot;&gt;&#x5E74;&#x5EA6;&#x51FA;&#x8B66;&#x6570;&lt;/h2&gt;
-      &lt;div class=&quot;case-resolved-chart&quot; id=&quot;caseResolvedChart&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-  import axios from &apos;axios&apos;
-  import api from &apos;../assets/scripts/tool/api&apos;
-  import Data from &apos;../data/fantasy/castle/left&apos;
-  import MultiPie from &apos;../assets/scripts/charts/multiPie&apos;
-  Data()
-
-  export default {
-    name: &apos;left&apos;,
-    data () {
-      return {
-        thisyear: &apos;&apos;,
-        hbstate: &apos;&apos;,
-        huanbi: &apos;&apos;,
-        lastyear: &apos;&apos;
-      }
-    },
-    mounted () {
-      const self = this
-      axios.get(api.iotalarm)
-        .then(response =&gt; {
-          const data = response.data.result
-          self.dealDDC(data.diandongche)
-          self.dealCase(data.caseResolved)
-        })
-        .catch(error =&gt; {
-          console.error(error)
-        })
-    },
-    methods: {
-      dealDDC (data) {
-        let hbstate
-        let hbValue = data.huanbi
-        if (hbValue &lt; 0) {
-          hbstate = &apos;down&apos;
-          hbValue = Math.abs(hbValue)
-        } else if (hbValue === 0) {
-          hbstate = &apos;level&apos;
-          hbValue = &apos;- 0&apos;
-        } else if (hbValue &gt; 0) {
-          hbstate = &apos;up&apos;
-          hbValue = Math.abs(hbValue)
-        }
-        this.thisyear = data.thisyear
-        this.hbstate = hbstate
-        this.huanbi = hbValue
-        this.lastyear = data.lastyear
-      },
-      dealCase (data) {
-        const config = {}
-        const multiPie = new MultiPie(&apos;.case-resolved-chart&apos;, config)
-        multiPie.render(data)
-      }
-    }
-  }
-&lt;/script&gt;
-&lt;style scoped&gt;
-  .diandongche {
-    position: absolute;
-    top: 220px;
-    left: 60px;
-    width: 680px;
-    height: 600px;
-    background: url(../assets/images/common/tip-title-bg.png) no-repeat top left;
-  }
-
-  .alarm-list {
-    position: absolute;
-    top: 120px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    font-size: 0;
-  }
-
-  .alarm-list li {
-    width: 50%;
-    height: 190px;
-    overflow: hidden;
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-
-  .alarm-list-name span {
-    font-size: 50px;
-    color: #b4c7f9;
-    position: relative;
-    display: inline-block;
-  }
-
-  .alarm-list-name span:after {
-    content: &quot;&#x4EF6;&quot;;
-    display: inline-block;
-    position: absolute;
-    top: 4px;
-    right: -80px;
-    text-align: center;
-    font-size: 30px;
-    line-height: 46px;
-    color: #8da5e4;
-    height: 46px;
-    width: 60px;
-    background: #0c3f87;
-    border: 1px solid #443cba;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-name span:after {
-    display: none;
-  }
-
-  .alarm-list-value {
-    font-size: 60px;
-    color: #1aac4e;
-    position: relative;
-    display: inline-block;
-    margin-top:20px;
-  }
-
-  .alarm-list li:first-child .alarm-list-value {
-    font-size: 90px;
-    color: #44ff86;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value {
-    margin-top: 34px;
-    text-indent: 40px;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;up&quot;] {
-    color: #ff4444;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;level&quot;] {
-    color: #b4c7f9;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;down&quot;] {
-    color: #44ff86;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value:after {
-    content: &quot;%&quot;;
-    display: inline-block;
-    position: absolute;
-    bottom: 4px;
-    right: -24px;
-    font-size: 30px;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state]:before {
-    content: &quot;&quot;;
-    display: inline-block;
-    position: absolute;
-    width: 25px;
-    height: 26px;
-    top: 26px;
-    left: 0px;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;up&quot;]:before {
-    background: url(../assets/images/common/huanbi-up.png) no-repeat;
-  }
-
-  .alarm-list li:nth-child(2) .alarm-list-value[data-state=&quot;down&quot;]:before {
-    background: url(../assets/images/common/huanbi-down.png) no-repeat;
-  }
-
-  .caseResolved {
-    position: absolute;
-    top: 830px;
-    left: 60px;
-    background: url(../assets/images/common/tip-title-bg.png) no-repeat top left;
-  }
-
-  .case-resolved-chart {
-    width: 900px;
-    height: 270px;
-    margin-top: 130px;
-  }
-&lt;/style&gt;
-</code></pre>
-<h5 id="srcdatafantasycastleleftjs">/src/data/fantasy/castle/left.js</h5>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> {
-  urlReg
-} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../../../assets/scripts/tool/utils&apos;</span>
-
-<span class="hljs-keyword">import</span> Mock <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;mockjs&apos;</span>
-
-<span class="hljs-keyword">const</span> data = () =&gt; {
-  Mock.mock(urlReg(<span class="hljs-string">&apos;/iot/overview/alarm&apos;</span>), {
-    <span class="hljs-string">&apos;code&apos;</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-string">&apos;msg&apos;</span>: <span class="hljs-string">&apos;success&apos;</span>,
-    <span class="hljs-string">&apos;result&apos;</span>: {
-      <span class="hljs-string">&apos;diandongche&apos;</span>: {
-        <span class="hljs-string">&apos;lastyear&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>,
-        <span class="hljs-string">&apos;thisyear&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>,
-        <span class="hljs-string">&apos;huanbi&apos;</span>: <span class="hljs-string">&apos;@integer(-100,100)&apos;</span>
-      },
-      <span class="hljs-string">&apos;caseResolved|3&apos;</span>: [{
-        <span class="hljs-string">&apos;name|+1&apos;</span>: [<span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E00;&apos;</span>, <span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E8C;&apos;</span>, <span class="hljs-string">&apos;&#x90E8;&#x95E8;&#x4E09;&apos;</span>],
-        <span class="hljs-string">&apos;value&apos;</span>: <span class="hljs-string">&apos;@natural(1,2000)&apos;</span>
-      }]
-    }
-  })
-}
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> data
-</code></pre>
-<h5 id="srcassetsscriptschartsmultipiejs">/src/assets/scripts/charts/multiPie.js</h5>
+<h3 id="2&#x3001;&#x5B89;&#x88C5;-d3js">2&#x3001;&#x5B89;&#x88C5; d3.js</h3>
+<pre><code>yarn add d3 -S
+</code></pre><h3 id="3&#x3001;&#x6784;&#x5EFA;-d3-&#x73AF;&#x56FE;">3&#x3001;&#x6784;&#x5EFA; D3 &#x73AF;&#x56FE;</h3>
+<p>&#x5728; /src/assets/scripts/charts/ &#x4E0B;&#x521B;&#x5EFA; multiPie.js &#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> d3 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;d3&apos;</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiPie</span> </span>{
@@ -651,6 +410,7 @@ export default {
       }
     }
   }
+
   <span class="hljs-comment">/**
    *  &#x521D;&#x59CB;&#x5316;&#xFF0C;&#x521B;&#x5EFA;&#x5BB9;&#x5668;
    *  @param    {String}  selector &#x56FE;&#x8868;&#x5BB9;&#x5668;&#xFF0C;&#x652F;&#x6301;class&#x6216;id
@@ -670,11 +430,13 @@ export default {
       .attr(<span class="hljs-string">&apos;width&apos;</span>, width)
       .attr(<span class="hljs-string">&apos;height&apos;</span>, height)
   }
+
   <span class="hljs-comment">/**
    *  &#x5904;&#x7406;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;pie&#x5E03;&#x5C40;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;
    *  @param    {Array}  data    &#x539F;&#x59CB;&#x6570;&#x636E;
    *  @return   {Array}  dataset &#x8F6C;&#x6362;&#x540E;&#x7684;&#x6570;&#x636E;
    */</span>
+
   getDataset(data) {
     <span class="hljs-keyword">let</span> dataset = []
     <span class="hljs-keyword">const</span> clockwisePie = d3.pie() <span class="hljs-comment">// &#x987A;&#x65F6;&#x9488;&#xFF0C;&#x9488;&#x5BF9;&#x6570;&#x636E;&#x7C7B;&#x578B;:[small,bigger]</span>
@@ -695,6 +457,7 @@ export default {
     })
     <span class="hljs-keyword">return</span> dataset
   }
+
   <span class="hljs-comment">/**
    *  &#x7ED8;&#x5236;&#x56FE;&#x6848;&#x5E95;&#x90E8;&#x7684;&#x540D;&#x79F0;&#x6587;&#x672C;
    *  @param    {Object}  chart &#x5305;&#x88F9;&#x6587;&#x672C;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
@@ -745,6 +508,7 @@ export default {
           .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursorNor)
       })
   }
+
   <span class="hljs-comment">/**
    *  &#x7ED8;&#x5236;&#x56FE;&#x6848;&#x4E2D;&#x95F4;&#x7684;value&#x503C;&#x6587;&#x672C;
    *  @param    {Object}  chart &#x5305;&#x88F9;&#x6587;&#x672C;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
@@ -771,6 +535,7 @@ export default {
       .attr(<span class="hljs-string">&apos;cursor&apos;</span>, cursor)
       .text(info.value)
   }
+
   <span class="hljs-comment">/**
    *  &#x7ED8;&#x5236;&#x5355;&#x4E2A;Pie&#x56FE;&#x6848;
    *  @param    {Objec}  chartName  &#x5355;&#x4E2A;&#x56FE;&#x6848;&#x7684;&#x5916;&#x5C42;g&#x5BB9;&#x5668;
@@ -807,6 +572,7 @@ export default {
     enter.append(<span class="hljs-string">&apos;text&apos;</span>).attr(<span class="hljs-string">&apos;class&apos;</span>, <span class="hljs-string">&apos;pie-value&apos;</span>)
     <span class="hljs-keyword">this</span>.renderValue(chart, info)
   }
+
   render(data) {
     <span class="hljs-keyword">let</span> dataset = <span class="hljs-keyword">this</span>.getDataset(data)
     <span class="hljs-keyword">const</span> update = <span class="hljs-keyword">this</span>.svg.selectAll(<span class="hljs-string">&apos;.item&apos;</span>)
@@ -866,12 +632,12 @@ export default {
 
             
                 
-                <a href="03-实现顶部信息展示.html" class="navigation navigation-prev " aria-label="Previous page: 03-实现顶部信息展示">
+                <a href="04-构建左侧信息展示.html" class="navigation navigation-prev " aria-label="Previous page: 04-构建左侧信息展示">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="05-环状图可视化.html" class="navigation navigation-next " aria-label="Next page: 05-环状图可视化">
+                <a href="06-水泡图可视化.html" class="navigation navigation-next " aria-label="Next page: 06-水泡图可视化">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -882,7 +648,7 @@ export default {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"04-构建左侧信息展示","level":"1.3.4","depth":2,"next":{"title":"05-环状图可视化","level":"1.3.5","depth":2,"path":"project/05-环状图可视化.md","ref":"project/05-环状图可视化.md","articles":[]},"previous":{"title":"03-实现顶部信息展示","level":"1.3.3","depth":2,"path":"project/03-实现顶部信息展示.md","ref":"project/03-实现顶部信息展示.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"project/04-构建左侧信息展示.md","mtime":"2020-02-24T04:55:27.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T00:42:09.752Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"05-环状图可视化","level":"1.3.5","depth":2,"next":{"title":"06-水泡图可视化","level":"1.3.6","depth":2,"path":"project/06-水泡图可视化.md","ref":"project/06-水泡图可视化.md","articles":[]},"previous":{"title":"04-构建左侧信息展示","level":"1.3.4","depth":2,"path":"project/04-构建左侧信息展示.md","ref":"project/04-构建左侧信息展示.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"project/05-环状图可视化.md","mtime":"2020-02-25T00:48:00.567Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-25T00:42:09.752Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
